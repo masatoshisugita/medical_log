@@ -1,5 +1,11 @@
 <div class="row">
   <ul>
-    <li><%= link_to 'ユーザー作成',new_user_path, class: 'nav-link' %></li>
+    <% if current_user %>
+    <li class="nav-item"><%= link_to 'ログアウト',logout_path, method: :delete, class: 'nav-link' %></li>
+
+    <% else %>
+      <li><%= link_to 'ユーザー作成',new_user_path, class: 'nav-link' %></li>
+      <li><%= link_to 'ユーザーログイン',login_path, class: 'nav-link' %></li>
+    <% end %>
   </ul>
 </div>
