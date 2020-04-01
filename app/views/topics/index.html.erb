@@ -4,6 +4,7 @@
   <table class="table table-hover">
     <thead class="thread-default">
       <tr>
+        <th>ユーザー名</th>
         <th>病気の名前</th>
         <th>初期症状</th>
         <th>詳細</th>
@@ -11,6 +12,7 @@
       <tbody>
           <% @topics.each do |topic| %>
           <tr>
+            <td><%= link_to topic.user.name, user_path(topic.user) %></td>
             <td><%= link_to topic.sick_name, topic %></td>
             <td><%= topic.initial_symptom %></td>
             <td><%= link_to '詳細',topic_path(topic),class: 'btn btn-primary' %></td>

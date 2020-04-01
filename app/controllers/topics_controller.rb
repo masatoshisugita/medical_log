@@ -17,7 +17,7 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = current_user.topics.find(params[:id])
+    @topic = Topic.find(params[:id])
   end
 
   def edit

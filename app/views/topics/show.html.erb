@@ -20,6 +20,8 @@
           </tr>
       </tbody>
     </table>
-    <%= link_to '編集',edit_topic_path, class: 'btn btn-primary mr-3' %>
-    <%= link_to '削除',@topic,method: :delete,data: { confirm: "タスク「#{@topic.sick_name}」を削除します。よろしいですか？" },class: 'btn btn-danger' %>
+    <% if current_user == @topic.user %>
+      <%= link_to '編集',edit_topic_path, class: 'btn btn-primary mr-3' %>
+      <%= link_to '削除',@topic,method: :delete,data: { confirm: "タスク「#{@topic.sick_name}」を削除します。よろしいですか？" },class: 'btn btn-danger' %>
+    <% end %>
 </div>
