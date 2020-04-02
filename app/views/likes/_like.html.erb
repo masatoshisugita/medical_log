@@ -1,0 +1,13 @@
+ <% if current_user.likes.find_by(topic_id: @topic.id) %>
+<div class="like_button_on">
+    <%= link_to "/likes/#{@topic.id}/delete", {method: "post", remote: true} do %>
+    <div class = "iine__button">❤️<%= @topic.likes.count %></div>
+    <% end %>
+</div>
+<% else %>
+<div class="like_button">
+    <%= link_to "/likes/#{@topic.id}/create", {method: "post", remote: true} do %>
+    <div class = "iine__button">♡<%= @topic.likes.count %></div>
+    <% end %>
+</div>
+<% end %>

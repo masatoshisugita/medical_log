@@ -1,12 +1,15 @@
 class LikesController < ApplicationController
+  skip_before_action :login_required
 
   def create
-    @topic = Topic.find(params[:id])
-    @topic.nice(current_user)
+    @like = current_user.likes.new(user_id: current_user.id, topic_id: params[:topic_id])
+    @like.save
+    @topic = Topic.find_by(id: @like.topic_id)
   end
 
-  def destroy
-    @topic = Like.find(params[:id]).topic
-    @topic.no_nice(current_user)
+  def delete
+    @like = current_user.likes.find_by(user_id: current_user.id, topic_id: params[:topic_id])
+    @topic = Topic.find_by(id: @like.topic_id)
+    @like.destroy
   end
 end

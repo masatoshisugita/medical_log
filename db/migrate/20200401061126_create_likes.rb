@@ -5,10 +5,6 @@ class CreateLikes < ActiveRecord::Migration[6.0]
       t.integer :topic_id, null: false
 
       t.timestamps
-
-      t.index :user_id
-      t.index :topic_id
-      t.index [:user_id, :tioic_id], unique: true
     end
   end
 end
