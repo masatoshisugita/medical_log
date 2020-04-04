@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_061820) do
     t.integer "followed_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
   end
 
   create_table "topics", force: :cascade do |t|

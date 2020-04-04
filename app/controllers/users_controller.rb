@@ -31,6 +31,20 @@ class UsersController < ApplicationController
     redirect_to root_url, notice:"タスク「#{@user.name}」を削除しました。"
   end
 
+  def following_user
+    #@userがフォローしているユーザー
+    @user = User.find(params[:id])
+    @users = @user.following_user
+    render 'show_follow'
+  end
+
+  def follower_user
+    #@userをフォローしているユーザ
+    @user = User.find(params[:id])
+    @users = @user.follower_user
+    render 'show_follower'
+  end
+
   private
 
   def user_params
