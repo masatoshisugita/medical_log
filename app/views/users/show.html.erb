@@ -28,5 +28,8 @@
 
   <div>
       <%= render partial: 'follow_form',locals: {user: @user} %>
+      <%= link_to 'フォロー一覧',following_user_path(@user) %>
+      <%= link_to 'フォロワー一覧',followers_user_path(@user) %>
+
   </div>
 </div>
