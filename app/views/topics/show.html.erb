@@ -2,6 +2,10 @@
   <h1><%= "#{@topic.sick_name}の詳細" %></h1>
     <table class="table table-hover">
       <tbody>
+        <tr>
+          <th>ユーザー名</th>
+          <th><%= @topic.user.name %></th>
+        </tr>
           <tr>
             <th>病気の名前</th>
             <th><%= @topic.sick_name %></th>
@@ -20,10 +24,17 @@
           </tr>
       </tbody>
     </table>
+  </div>
 
-<div class="buttons_<%= @topic.id %>"><%= render partial: 'likes/like',locals: { topic: @topic } %></div>
-    <% if current_user == @topic.user %>
+<div class="row">
+  <div class="col-md-10 col-md-offset-2">
+    <div>
+      <% if current_user == @topic.user %>
       <%= link_to '編集',edit_topic_path, class: 'btn btn-primary mr-3' %>
       <%= link_to '削除',@topic,method: :delete,data: { confirm: "タスク「#{@topic.sick_name}」を削除します。よろしいですか？" },class: 'btn btn-danger' %>
     <% end %>
+  </div>
+
+    <div class="float-right buttons_<%= @topic.id %>"><%= render partial: 'likes/like',locals: { topic: @topic } %></div>
+  </div>
 </div>
