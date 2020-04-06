@@ -34,7 +34,16 @@
       <%= link_to '削除',@topic,method: :delete,data: { confirm: "タスク「#{@topic.sick_name}」を削除します。よろしいですか？" },class: 'btn btn-danger' %>
     <% end %>
   </div>
-
     <div class="float-right buttons_<%= @topic.id %>"><%= render partial: 'likes/like',locals: { topic: @topic } %></div>
   </div>
+</div>
+
+<div>
+  <h4>コメント</h4>
+  <div id="comments_area">
+    <%= render partial: 'comments/index', locals: { comments: @comments} %>
+  </div>
+  <% if current_user %>
+    <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
+  <% end %>
 </div>

@@ -1,0 +1,6 @@
+<% comments.each do |comment| %>
+  <% unless comment.id.nil? %>
+    <p><%= link_to "#{comment.user.name}さん",user_path(comment.user.id) %></p>
+    <p><%= comment.content %></p>
+  <% end %>
+<% end %>
