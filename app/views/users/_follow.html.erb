@@ -1,0 +1,5 @@
+<%= form_for(current_user, url: relationships_path, method: :post, remote: true) do |f| %>
+<%# @user.idをfollower_idに格納する %>
+  <%= f.hidden_field :follower_id, :value => @user.id %>
+  <%= f.submit "フォローする", class: "btn btn-outline-secondary" %>
+<% end %>

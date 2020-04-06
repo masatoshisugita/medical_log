@@ -1,0 +1,12 @@
+<h1 class="text-center"><%= "#{@user.name}のフォロー一覧" %></h1>
+<div class="row">
+<% @users.each do |user| %>
+  <table width="100%">
+    <tbody>
+      <tr align="center">
+        <th><%= link_to user.name,user,:style=>"font-size:xx-large;" %></th>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+</div>
