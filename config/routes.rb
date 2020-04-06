@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
+  root to: "topics#index"
+
   get 'likes/create'
   get 'likes/destroy'
-  root to: "topics#index"
+
   resources :users do
     member do
       get :following, :followers
     end
   end
 
-  resources :topics
+  resources :topics do
+    resources :comments
+  end
+
   get '/login',to: 'sessions#new'
   post '/login',to: 'sessions#create'
   delete '/logout',to: 'sessions#destroy'
