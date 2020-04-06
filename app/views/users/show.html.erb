@@ -24,12 +24,14 @@
       <%= link_to '編集',edit_user_path, class: 'btn btn-primary mr-3' %>
       <%= link_to '削除',@user,method: :delete,data: { confirm: "タスク「#{@user.name}」を削除します。よろしいですか？" },class: 'btn btn-danger' %>
     <% end %>
+</div>
 
-
-  <div>
+<div class="row">
+  <div class="col-md-10 col-md-offset-2">
       <%= render partial: 'follow_form',locals: {user: @user} %>
-      <%= link_to 'フォロー一覧',following_user_path(@user) %>
-      <%= link_to 'フォロワー一覧',followers_user_path(@user) %>
-
-  </div>
+      <div class="float-right">
+        <%= link_to 'フォロー一覧',following_user_path(@user), class: "btn btn-info  d-inline-block" %>
+        <%= link_to 'フォロワー一覧',followers_user_path(@user),class: "btn btn-info  d-inline-block" %>
+      </div>
+    </div>
 </div>
