@@ -2,5 +2,8 @@
   <% unless comment.id.nil? %>
     <p><%= link_to "#{comment.user.name}さん",user_path(comment.user.id) %></p>
     <p><%= comment.content %></p>
+    <% if comment.user == current_user %>
+    <p><%= link_to "コメントを削除する",topic_comment_path(comment.topic_id,comment.id),method: :delete, remote: true %></p><hr size="5" color="black">
+  <% end %>
   <% end %>
 <% end %>
