@@ -8,6 +8,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
+    unless @user.user_image.nil?
+      @user.user_image.filename
+    end
+
     if @user.save
       redirect_to login_url, notice: "「#{@user.name}」を登録しました。"
     else
@@ -23,12 +28,12 @@ class UsersController < ApplicationController
 
   def update
     @user.update!(user_params)
-    redirect_to @user, notice:"タスク「#{@user.name}」を更新しました。"
+    redirect_to @user, notice:"ユーザー「#{@user.name}」を更新しました。"
   end
 
   def destroy
     @user.destroy
-    redirect_to root_url, notice:"タスク「#{@user.name}」を削除しました。"
+    redirect_to root_url, notice:"ユーザー「#{@user.name}」を削除しました。"
   end
 
   #@userがフォローしているユーザーを表示するメソッド
@@ -46,7 +51,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name,:email,:password,:password_confirmation)
+    params.require(:user).permit(:name,:email,:password,:password_confirmation,:user_image)
   end
 
   def set_user
