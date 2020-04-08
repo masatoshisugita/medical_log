@@ -21,5 +21,7 @@ Rails.application.routes.draw do
   post "/likes/:topic_id/create", to: "likes#create"
   post "/likes/:topic_id/delete", to: "likes#delete"
 
+  get '/search', to: 'topics#search'
+
   resources :relationships, only: [:create,:destroy]
 end
