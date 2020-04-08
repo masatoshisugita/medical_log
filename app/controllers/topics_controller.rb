@@ -38,6 +38,11 @@ class TopicsController < ApplicationController
     redirect_to topics_url, notice:"タスク「#{@topic.sick_name}」を削除しました。"
   end
 
+  def search
+    @search = params[:search]
+    @topics = Topic.search(params[:search])
+  end
+
   private
 
   def topic_params
