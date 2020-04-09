@@ -14,7 +14,8 @@ class UsersController < ApplicationController
     end
 
     if @user.save
-      redirect_to login_url, notice: "「#{@user.name}」を登録しました。"
+      log_in(@user)
+      redirect_to root_url, notice: "「#{@user.name}」を登録しました。"
     else
       render :new
     end
@@ -46,6 +47,10 @@ class UsersController < ApplicationController
   def followers
     @user = User.find(params[:id])
     @users = @user.follower_user
+  end
+
+  def log_in(user)
+    session[:user_id] = user.id
   end
 
   private
