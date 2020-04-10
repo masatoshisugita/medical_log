@@ -1,0 +1,15 @@
+ja:
+  helpers:
+    submit:
+      create: 登録する
+      submit: 保存する
+      update: 更新する
+  activerecord:
+    models:
+      topic:
+    attributes:
+      topic:
+        sick_name: 病気の名前
+        period: 期間
+        initial_symptom: 初期症状
+        content: 内容
