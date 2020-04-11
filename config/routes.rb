@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   get '/search', to: 'topics#search'
 
   resources :relationships, only: [:create,:destroy]
+  resources :account_activations, only: [:edit]
 end

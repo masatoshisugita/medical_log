@@ -14,8 +14,9 @@ class UsersController < ApplicationController
     end
 
     if @user.save
-      log_in(@user)
-      redirect_to root_url, notice: "「#{@user.name}」を登録しました。"
+      UserMailer.account_activation(@user).deliver_now
+      flash[:info] = "送信されたメールアドレスからアカウントを有効にしてください"
+      redirect_to root_url
     else
       render :new
     end
