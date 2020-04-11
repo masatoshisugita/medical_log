@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   before_action :login_required
 
+  def log_in(user)
+    session[:user_id] = user.id
+  end
+  
   private
 
   def current_user

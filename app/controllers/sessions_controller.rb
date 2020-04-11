@@ -8,9 +8,15 @@ class SessionsController < ApplicationController
     user = User.find_by(email: session_params[:email])
 
     if user&.authenticate(session_params[:password])
-      session[:user_id] = user.id
-      redirect_to user, notice:'ログインしました。'
+      if user.activated?
+        log_in(user)
+        redirect_to user, notice:'ログインしました。'
+      else
+        flash[:warning] = "送信されたメールでアカウントを有効化してください"
+        redirect_to root_url
+      end
     else
+      flash[:danger] = "ユーザー登録をしてください"
       render :new
     end
   end
