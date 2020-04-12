@@ -10,7 +10,8 @@ class SessionsController < ApplicationController
     if user&.authenticate(session_params[:password])
       if user.activated?
         log_in(user)
-        redirect_to user, notice:'ログインしました。'
+        flash[:info] = "ログインしました"
+        redirect_to user
       else
         flash[:warning] = "送信されたメールでアカウントを有効化してください"
         redirect_to root_url
@@ -23,7 +24,8 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to root_url,notice:'ログアウトしました。'
+    flash[:info] = "ログアウトしました。"
+    redirect_to root_url
   end
 
 
