@@ -5,7 +5,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 'password'
     ports:
-      - "4306:3306"
+      - "4306:3306" #左がホストマシンで利用したいポート番号、右がコンテナ内のポート番号
 
   web:
     build: .
@@ -14,5 +14,7 @@ services:
       - .:/medical_log
     ports:
       - "3000:3000"
+    tty: true #ポート待受などをしていないコンテナを起動させ続けるオプション
+    stdin_open: true #標準入力出来るようになるオプション
     depends_on:
       - db

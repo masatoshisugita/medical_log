@@ -1,17 +1,15 @@
 FROM ruby:2.5.3
 
-RUN apt-get update -qq && \
-    apt-get install -y build-essential \
-                       libpq-dev \
-                       nodejs
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+        && apt-get install -y nodejs
 
 RUN mkdir /medical_log
 
 ENV APP_ROOT /medical_log
 WORKDIR /medical_log
 
-ADD ./Gemfile /medical_log/Gemfile
-ADD ./Gemfile.lock /medical_log/Gemfile.lock
+COPY ./Gemfile /medical_log/Gemfile
+COPY ./Gemfile.lock /medical_log/Gemfile.lock
 
 RUN gem install bundler
 RUN bundle install

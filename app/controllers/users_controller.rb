@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
     unless @user.user_image.nil?
       @user.user_image.filename
     end
