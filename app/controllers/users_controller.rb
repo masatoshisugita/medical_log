@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
     unless @user.user_image.nil?
       @user.user_image.filename
     end
@@ -30,12 +29,14 @@ class UsersController < ApplicationController
 
   def update
     @user.update!(user_params)
-    redirect_to @user, notice:"ユーザー「#{@user.name}」を更新しました。"
+    flash[:success] = "ユーザー「#{@user.name}」を更新しました。"
+    redirect_to @user
   end
 
   def destroy
     @user.destroy
-    redirect_to root_url, notice:"ユーザー「#{@user.name}」を削除しました。"
+    flash[:danger] = "ユーザー「#{@user.name}」を削除しました。"
+    redirect_to root_url
   end
 
   #@userがフォローしているユーザーを表示するメソッド

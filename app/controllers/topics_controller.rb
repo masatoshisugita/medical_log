@@ -1,5 +1,7 @@
 class TopicsController < ApplicationController
-  
+  before_action :set_current_user_topic, only: [:edit,:update,:destroy]
+
+
   def index
     @topics = Topic.paginate(page: params[:page], per_page: 5)
   end
@@ -11,7 +13,8 @@ class TopicsController < ApplicationController
   def create
     @topic = current_user.topics.new(topic_params)
     if @topic.save
-      redirect_to @topic, notice: "「#{@topic.sick_name}」を登録しました。"
+      flash[:success] = "「#{@topic.sick_name}」を登録しました。"
+      redirect_to @topic
     else
       render :new
     end
@@ -24,19 +27,18 @@ class TopicsController < ApplicationController
   end
 
   def edit
-    @topic = current_user.topics.find(params[:id])
   end
 
   def update
-    @topic = current_user.topics.find(params[:id])
     @topic.update!(topic_params)
-    redirect_to @topic, notice:"タスク「#{@topic.sick_name}」を更新しました。"
+    flash[:success] = "「#{@topic.sick_name}」を更新しました。"
+    redirect_to @topic
   end
 
   def destroy
-    @topic = current_user.topics.find(params[:id])
     @topic.destroy
-    redirect_to topics_url, notice:"タスク「#{@topic.sick_name}」を削除しました。"
+    flash[:danger] = "「#{@topic.sick_name}」を削除しました。"
+    redirect_to topics_url
   end
 
   def search
@@ -48,5 +50,9 @@ class TopicsController < ApplicationController
 
   def topic_params
     params.require(:topic).permit(:sick_name,:period,:initial_symptom,:content)
+  end
+
+  def set_current_user_topic
+    @topic = current_user.topics.find(params[:id])
   end
 end
