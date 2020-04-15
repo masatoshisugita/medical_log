@@ -49,6 +49,11 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'selenium-webdriver'
+  gem 'rspec-rails', '~> 3.6.0'
+  gem 'spring-commands-rspec'
+  gem 'factory_bot_rails', '~> 4.10.0'
+  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
