@@ -8,8 +8,32 @@ ja:
     models:
       topic:
     attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        user_image: 画像
+        password: パスワード
+        password_confirmation: パスワード（確認）
       topic:
         sick_name: 病気の名前
         period: 期間
         initial_symptom: 初期症状
         content: 内容
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "名前が空になっています"
+            email:
+              blank: "メールアドレスが空になっています"
+            password:
+              blank: "パスワードが空になっています"
+            password_confirmation:
+              blank: "パスワード（確認）が空になっています"
+        topic:
+          attributes:
+            sick_name:
+              blank: "病気の名前が空になっています"
+            content:
+              blank: "内容が空になっています"
