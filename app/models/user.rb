@@ -17,26 +17,27 @@ class User < ApplicationRecord
   mount_uploader :user_image, UserImageUploader
 
 
-  has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy #フォロー取得
-  has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy #フォロワー取得
-  #自分がフォローしている人 （中間テ−ブルは「follower」でソースのfollowed_idを参考にしてfollowing_userモデルにアクセスする）
-  has_many :following_user, through: :follower,  source: :followed
-  #自分をフォローしている人　（中間テ−ブルは「followed」でソースのfollower_idを参考にしてfollower_userモデルにアクセスする）
-  has_many :follower_user, through: :followed,  source: :follower
+  has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy #フォロー取得
+  has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy #フォロワー取得
+  #自分がフォローしている人 （中間テ−ブルは「active_relationships」でソースのfollowed_idを参考にしてfollowing_userモデルにアクセスする）
+  has_many :following_user, through: :active_relationships,  source: :followed
+  #自分をフォローしている人　（中間テ−ブルは「passive_relationships」でソースのfollower_idを参考にしてfollower_userモデルにアクセスする）
+  has_many :follower_user, through: :passive_relationships,  source: :follower
+
 
   #other_userをフォローしているか確認する
   def following?(other_user)
-    follower.find_by(followed_id: other_user.id)
+    active_relationships.find_by(followed_id: other_user.id)
   end
 
   #other_userをフォローする
   def follow(other_user)
-    follower.create(followed_id: other_user.id)
+    active_relationships.create(followed_id: other_user.id)
   end
 
   #other_userのフォローを外す
   def unfollow(other_user)
-    follower.find_by(followed_id: other_user.id).destroy
+    active_relationships.find_by(followed_id: other_user.id).destroy
   end
 
   # 渡された文字列のハッシュ値を返す
