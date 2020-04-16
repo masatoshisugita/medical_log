@@ -3,22 +3,22 @@
 
   <%= form_with model: topic, local: true do |f| %>
     <div class="form-group">
-      <%= f.label :sick_name %>
+      <%= f.label :sick_name %><span>　※必須　(30文字以内)</span>
       <%= f.text_field :sick_name ,class: 'form-control'  %>
     </div>
 
     <div class="form-group">
-      <%= f.label :period %>
+      <%= f.label :period %><span>　(20文字以内)</span>
       <%= f.text_field :period ,class: 'form-control'  %>
     </div>
 
     <div class="form-group">
-      <%= f.label :initial_symptom %>
+      <%= f.label :initial_symptom %><span>　(50文字以内)</span>
       <%= f.text_field :initial_symptom ,class: 'form-control'  %>
     </div>
 
     <div class="form-group">
-      <%= f.label :content %>
+      <%= f.label :content %><span>　※必須　(400文字以内)</span>
       <%= f.text_field :content ,class: 'form-control'  %>
     </div>
     <%= f.submit class: 'btn btn-primary' %>

@@ -37,3 +37,7 @@ ja:
               blank: "病気の名前が空になっています"
             content:
               blank: "内容が空になっています"
+        comment:
+          attributes:
+            review:
+              blank: "コメントが空になっています"

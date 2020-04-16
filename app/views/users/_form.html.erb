@@ -3,12 +3,12 @@
 
   <%= form_with model: user, local: true do |f| %>
     <div class="form-group">
-      <%= f.label :name %>
+      <%= f.label :name %><span>　※必須　(15文字以内)</span>
       <%= f.text_field :name ,class: 'form-control'  %>
     </div>
 
     <div class="form-group">
-      <%= f.label :email %>
+      <%= f.label :email %><span>　※必須　(255文字以内)</span>
       <%= f.text_field :email ,class: 'form-control'  %>
     </div>
 
@@ -18,12 +18,12 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :password %>
+      <%= f.label :password %><span>　※必須　(6文字以上)</span>
       <%= f.password_field :password ,class: 'form-control'  %>
     </div>
 
     <div class="form-group">
-      <%= f.label :password_confirmation %>
+      <%= f.label :password_confirmation %><span>　※必須　(6文字以上)</span>
       <%= f.password_field :password_confirmation ,class: 'form-control'  %>
     </div>
     <%= f.submit class: 'btn btn-primary' %>
