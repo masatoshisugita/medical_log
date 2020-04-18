@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update!(user_params)
+    @user.update(user_params)
     flash[:success] = "ユーザー「#{@user.name}」を更新しました。"
     redirect_to @user
   end
@@ -51,9 +51,6 @@ class UsersController < ApplicationController
     @users = @user.follower_user
   end
 
-  def log_in(user)
-    session[:user_id] = user.id
-  end
 
   private
 
