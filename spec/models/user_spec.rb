@@ -66,4 +66,11 @@ RSpec.describe User, type: :model do
     expect(user.errors[:password_confirmation]).to be_present
   end
 
+  it "followでユーザーをフォローできること" do
+
+  end
+
+  it "unfollowでユーザーのフォローを解除できること" do
+
+  end
 end
