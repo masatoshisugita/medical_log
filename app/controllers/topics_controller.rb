@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :set_current_user_topic, only: [:edit,:update,:destroy]
+  before_action :set_topic, only: [:edit,:update,:destroy]
 
 
   def index
@@ -52,7 +52,7 @@ class TopicsController < ApplicationController
     params.require(:topic).permit(:sick_name,:period,:initial_symptom,:content)
   end
 
-  def set_current_user_topic
-    @topic = current_user.topics.find(params[:id])
+  def set_topic
+    @topic = Topic.find(params[:id])
   end
 end
