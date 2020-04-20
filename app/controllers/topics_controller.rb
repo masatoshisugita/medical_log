@@ -45,8 +45,17 @@ class TopicsController < ApplicationController
   end
 
   def search
-    @search = params[:search]
-    @topics = Topic.search(params[:search])
+    @search = params[:search] #viewに表示するため
+    if !(@search.blank?)
+      @topics = Topic.searching(params[:search])
+      if @topics.blank?
+        flash[:danger] = "#{@search}に一致する病名は現在ありません"
+        redirect_to root_url
+      end
+    else
+      flash[:danger] = "病気の名前を入力してください"
+      redirect_to root_url
+    end
   end
 
   private

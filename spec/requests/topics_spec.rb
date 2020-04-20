@@ -95,4 +95,28 @@ RSpec.describe "Topics", type: :request do
       expect(response).to have_http_status "200"
     end
   end
+  describe "#search" do
+    context "パラメーターが空な時" do
+      it "rootにリダイレクトすること" do
+        get search_path, params: { search: nil }
+        expect(flash[:danger]).to eq "病気の名前を入力してください"
+        expect(response).to redirect_to(root_url)
+      end
+    end
+    context "検索結果が一致する場合" do
+      it "そのtopicを表示すること" do
+        get search_path, params: { search: "風邪" }
+        expect(response).to have_http_status "200"
+        expect(response.body).to include "風邪"
+      end
+    end
+    context "検索結果が一致しない場合" do
+      it "rootにリダイレクトすること" do
+        get search_path, params: { search: "腹痛" }
+        expect(flash[:danger]).to eq "腹痛に一致する病名は現在ありません"
+        expect(response).to redirect_to(root_url)
+      end
+    end
+  end
+  
 end
