@@ -9,11 +9,9 @@ class Topic < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  def self.search(search)
-    if search
-      Topic.where(['sick_name LIKE ?',"%#{search}%"])
-    else
-      Topic.all
+  def self.searching(sick_name)
+    if sick_name
+      Topic.where(['sick_name LIKE ?',"%#{sick_name}%"])  
     end
   end
 end
