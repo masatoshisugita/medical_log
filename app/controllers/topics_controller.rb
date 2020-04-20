@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :set_current_user_topic, only: [:edit,:update,:destroy]
+  before_action :set_topic, only: [:show,:edit,:update,:destroy]
 
 
   def index
@@ -21,7 +21,6 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:id])
     @comment = Comment.new
     @comments = @topic.comments
   end
@@ -30,15 +29,19 @@ class TopicsController < ApplicationController
   end
 
   def update
-    @topic.update!(topic_params)
-    flash[:success] = "「#{@topic.sick_name}」を更新しました。"
-    redirect_to @topic
+    if current_user.id == @topic.user_id
+      @topic.update(topic_params)
+      flash[:success] = "「#{@topic.sick_name}」を更新しました。"
+      redirect_to @topic
+    end
   end
 
   def destroy
-    @topic.destroy
-    flash[:danger] = "「#{@topic.sick_name}」を削除しました。"
-    redirect_to topics_url
+    if current_user.id == @topic.user_id
+      @topic.destroy
+      flash[:danger] = "「#{@topic.sick_name}」を削除しました。"
+      redirect_to topics_url
+    end
   end
 
   def search
@@ -52,7 +55,7 @@ class TopicsController < ApplicationController
     params.require(:topic).permit(:sick_name,:period,:initial_symptom,:content)
   end
 
-  def set_current_user_topic
-    @topic = current_user.topics.find(params[:id])
+  def set_topic
+    @topic = Topic.find(params[:id])
   end
 end
