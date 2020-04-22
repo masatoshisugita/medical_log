@@ -38,7 +38,12 @@ RSpec.configure do |config|
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.
-  #
+  config.before(:all, :js => true) do
+    Capybara.current_driver = :selenium
+  end
+  config.after(:all, :js => true) do
+    Capybara.use_default_driver
+  end
   # You can disable this behaviour by removing the line below, and instead
   # explicitly tag your specs with their type, e.g.:
   #

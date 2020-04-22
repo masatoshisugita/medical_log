@@ -4,8 +4,9 @@ class CommentsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @comment = @topic.comments.build(comment_params)
     @comment.user_id = current_user.id
+    #@comments = @topic.comments
     if @comment.save
-      render :index
+      render "_index"
     end
   end
 

@@ -41,7 +41,7 @@
 <div>
   <h3>コメント</h3>
   <div id="comments_area">
-    <%= render partial: 'comments/index', locals: { comments: @comments} %>
+    <%= render partial: 'comments/index', locals: { comments: @comments } %>
   </div>
   <% if current_user %>
     <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
