@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :topics do
-    resources :comments
+    resources :comments, only: [:create, :destroy]
   end
 
   get '/login',to: 'sessions#new'
