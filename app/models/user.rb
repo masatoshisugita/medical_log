@@ -40,6 +40,16 @@ class User < ApplicationRecord
     active_relationships.find_by(followed_id: other_user.id).destroy
   end
 
+  #トピックをイイねする
+  def favorite(topic)
+    Like.create!(user_id: id, topic_id: topic.id)
+  end
+
+  # トピックのイイねを解除する
+  def unfavorite(topic)
+    Like.find_by(user_id: id, topic_id: topic.id).destroy
+  end
+
   # 渡された文字列のハッシュ値を返す
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
