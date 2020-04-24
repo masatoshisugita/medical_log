@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   def log_in(user)
     session[:user_id] = user.id
   end
-  
+
   private
 
   def current_user
@@ -15,5 +15,4 @@ class ApplicationController < ActionController::Base
   def login_required
       redirect_to login_url unless current_user
   end
-
 end

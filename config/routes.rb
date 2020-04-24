@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   post "/likes/:topic_id/create", to: "likes#create"
   post "/likes/:topic_id/delete", to: "likes#delete"
+  get "/likes/:user_id/index", to: "likes#index"
 
   get '/search', to: 'topics#search'
 

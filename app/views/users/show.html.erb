@@ -24,6 +24,12 @@
             <th>更新日時</th>
             <th><%= @user.updated_at.strftime("%Y-%m-%d %H:%M") %></th>
           </tr>
+          <tr>
+          <% @topics.each do |topic| %>
+            <th>投稿</th>
+              <th><%= link_to topic.sick_name,topic %></th>
+            </tr>
+          <% end %>
       </tbody>
     </table>
     <% if current_user == @user %>
@@ -38,6 +44,7 @@
       <div class="float-right">
         <%= link_to 'フォロー一覧',following_user_path(@user), class: "btn btn-info  d-inline-block" %>
         <%= link_to 'フォロワー一覧',followers_user_path(@user),class: "btn btn-info  d-inline-block" %>
+        <%= link_to 'いいね一覧',"/likes/#{@user.id}/index", class: 'btn btn-primary mr-3' %>
       </div>
     </div>
 </div>
