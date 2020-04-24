@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @topics = @user.topics.all
   end
 
   def edit

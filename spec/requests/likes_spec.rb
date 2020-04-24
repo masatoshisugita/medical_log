@@ -9,7 +9,7 @@ RSpec.describe "Likes", type: :request do
     activate @other_user
   end
   describe "#create & delete" do
-    xcontext "ログイン済みユーザーとして" do
+    context "ログイン済みユーザーとして" do
       before do
         sign_in @user
       end
@@ -36,6 +36,22 @@ RSpec.describe "Likes", type: :request do
       end
       it "deleteを実行しても、いいねできないこと" do
         expect{post "/likes/#{@topic.id}/delete",xhr: true}.not_to change{Like.count}
+      end
+    end
+  end
+
+  describe "#index" do
+    context "ログイン済みユーザーとして" do
+      it "200レスポンスを返すこと" do
+        sign_in @user
+        get "/likes/#{@user.id}/index"
+        expect(response).to have_http_status "200"
+      end
+    end
+    context "ログインしていないユーザーとして" do
+      it "ログインページにリダイレクトすること" do
+        get "/likes/#{@user.id}/index"
+        expect(response).to redirect_to login_path
       end
     end
   end

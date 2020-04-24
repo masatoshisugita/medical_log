@@ -4,7 +4,7 @@
       <tbody>
         <tr>
           <th>ユーザー名</th>
-          <th><%= @topic.user.name %></th>
+          <th><%= link_to @topic.user.name,@topic.user %></th>
         </tr>
           <tr>
             <th>病気の名前</th>

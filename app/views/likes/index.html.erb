@@ -1,0 +1,12 @@
+<h1 class="text-center"><%= "#{@user.name}のいいね一覧" %></h1>
+<div class="row">
+<% @likes.each do |like| %>
+  <table width="100%">
+    <tbody>
+      <tr align="center">
+        <th><%= link_to like.topic.sick_name,like.topic,:style=>"font-size:xx-large;" %></th>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+</div>
