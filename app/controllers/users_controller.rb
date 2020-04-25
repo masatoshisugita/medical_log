@@ -17,6 +17,7 @@ class UsersController < ApplicationController
       flash[:info] = "送信されたメールアドレスからアカウントを有効にしてください"
       redirect_to root_url
     else
+      flash[:danger] = "正確な値を入力してください"
       render :new
     end
   end
@@ -29,9 +30,16 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
-    flash[:success] = "ユーザー「#{@user.name}」を更新しました。"
-    redirect_to @user
+    if @user.update(user_params)
+      unless @user.user_image.nil?
+        @user.user_image.filename
+      end
+      flash[:success] = "ユーザーを編集しました。"
+      redirect_to @user
+    else
+      flash[:danger] = "正確な値を入力してください"
+      render :edit
+    end
   end
 
   def destroy
