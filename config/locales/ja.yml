@@ -19,6 +19,8 @@ ja:
         period: 期間
         initial_symptom: 初期症状
         content: 内容
+      comment:
+        review: コメント
     errors:
       models:
         user:

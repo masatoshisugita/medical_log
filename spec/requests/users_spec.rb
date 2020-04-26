@@ -92,7 +92,7 @@ RSpec.feature "UsersSignup", type: :request do
         user_params = FactoryBot.attributes_for(:user,name: nil)
         put user_path(@user), params: { user: user_params }
         expect(@user.reload.name).to eq "田中　太郎"
-        expect(response).to redirect_to(user_url(@user))
+        expect(response).to render_template(:edit)
       end
     end
   end
