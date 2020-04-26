@@ -30,7 +30,7 @@ RSpec.describe User, type: :model do
   end
 
   it "同じemailがデータにあると無効なこと" do
-    user1 = FactoryBot.create(:user,email: "tester@example.com")
+    user1 = FactoryBot.create(:user, email: "tester@example.com")
     user2 = FactoryBot.build(:user, email: "tester@example.com")
     expect(user2).not_to be_valid
     expect(user2.errors[:email]).to be_present
@@ -64,13 +64,5 @@ RSpec.describe User, type: :model do
     user = FactoryBot.build(:user, password: "abc123",password_confirmation: "123abc")
     expect(user).not_to be_valid
     expect(user.errors[:password_confirmation]).to be_present
-  end
-
-  it "followでユーザーをフォローできること" do
-
-  end
-
-  it "unfollowでユーザーのフォローを解除できること" do
-
   end
 end

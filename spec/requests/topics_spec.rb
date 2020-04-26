@@ -99,7 +99,7 @@ RSpec.describe "Topics", type: :request do
     context "パラメーターが空な時" do
       it "rootにリダイレクトすること" do
         get search_path, params: { search: nil }
-        expect(flash[:danger]).to eq "病気の名前を入力してください"
+        expect(flash[:danger]).to eq "病気の名前を入力してください。"
         expect(response).to redirect_to(root_url)
       end
     end
@@ -113,7 +113,7 @@ RSpec.describe "Topics", type: :request do
     context "検索結果が一致しない場合" do
       it "rootにリダイレクトすること" do
         get search_path, params: { search: "腹痛" }
-        expect(flash[:danger]).to eq "腹痛に一致する病名は現在ありません"
+        expect(flash[:danger]).to eq "「腹痛」に一致する病名は現在ありません。"
         expect(response).to redirect_to(root_url)
       end
     end

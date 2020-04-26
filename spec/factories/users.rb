@@ -9,11 +9,11 @@ FactoryBot.define do
     activated_at nil
   end
   #無効になっている
-    trait :invalid do
-      name nil
-    end
+  trait :invalid do
+    name nil
+  end
   #アカウントが有効化になっていない
-    trait :invalid_activated do
-      activated false
-    end
+  trait :invalid_activated do
+    activated false
+  end
 end

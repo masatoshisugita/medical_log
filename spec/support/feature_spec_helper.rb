@@ -1,6 +1,9 @@
-module RequestSpecHelper
+module FeatureSpecHelper
   def sign_in(user)
-    post login_path, params: { session: { email: user.email,password: user.password } }
+    visit login_path
+    fill_in "メールアドレス", with: "#{user.email}"
+    fill_in "パスワード", with: "#{user.password}"
+    click_button "ログインする"
   end
 
   # def sign_out(user)

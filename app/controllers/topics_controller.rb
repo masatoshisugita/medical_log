@@ -16,6 +16,7 @@ class TopicsController < ApplicationController
       flash[:success] = "「#{@topic.sick_name}」を登録しました。"
       redirect_to @topic
     else
+      flash[:danger] = "有効な値を入力してください。"
       render :new
     end
   end
@@ -31,7 +32,7 @@ class TopicsController < ApplicationController
   def update
     if current_user.id == @topic.user_id
       @topic.update(topic_params)
-      flash[:success] = "「#{@topic.sick_name}」を更新しました。"
+      flash[:success] = "トピックを更新しました。"
       redirect_to @topic
     end
   end
@@ -49,11 +50,11 @@ class TopicsController < ApplicationController
     if !(@search.blank?)
       @topics = Topic.searching(params[:search])
       if @topics.blank?
-        flash[:danger] = "#{@search}に一致する病名は現在ありません"
+        flash[:danger] = "「#{@search}」に一致する病名は現在ありません。"
         redirect_to root_url
       end
     else
-      flash[:danger] = "病気の名前を入力してください"
+      flash[:danger] = "病気の名前を入力してください。"
       redirect_to root_url
     end
   end

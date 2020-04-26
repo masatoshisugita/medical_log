@@ -3,7 +3,7 @@ ja:
     submit:
       create: 登録する
       submit: 保存する
-      update: 更新する
+      update: 編集する
   activerecord:
     models:
       topic:
@@ -19,6 +19,8 @@ ja:
         period: 期間
         initial_symptom: 初期症状
         content: 内容
+      comment:
+        review: コメント
     errors:
       models:
         user:
