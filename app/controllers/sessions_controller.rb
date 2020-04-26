@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
         redirect_to root_url
       end
     else
-      flash[:danger] = "ユーザー登録をしてください"
+      flash[:danger] = "メールアドレスもしくはパスワードが有効ではありません"
       render :new
     end
   end
@@ -27,7 +27,6 @@ class SessionsController < ApplicationController
     flash[:info] = "ログアウトしました。"
     redirect_to root_url
   end
-
 
   private
 

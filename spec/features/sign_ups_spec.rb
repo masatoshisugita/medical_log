@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Users", type: :feature do
+RSpec.feature "Sign up", type: :feature do
   context "ユーザー登録" do
     scenario "有効な値ならユーザー登録ができる" do
       visit new_user_path
@@ -70,41 +70,4 @@ RSpec.feature "Users", type: :feature do
       end
     end
   end
-
-  # context "ユーザー編集" do
-  #   before do
-  #     @user = FactoryBot.create(:user)
-  #     activate @user
-  #     sign_in @user
-  #     visit user_path(@user)
-  #     click_link "編集"
-  #   end
-  #
-  #   xscenario "「@user.nameの編集」という文字が表示されていること" do
-  #     expect(page).to have_content "#{@user.name}の編集"
-  #   end
-  #
-  #   scenario "有効な値ならユーザー編集できること" do
-  #     fill_in "名前", with: "山田　一郎"
-  #     fill_in "メールアドレス", with: "tester100@example.com"
-  #     fill_in "パスワード", with: "1a1a1a"
-  #     fill_in "パスワード（確認）", with: "1a1a1a"
-  #     click_button "編集する"
-  #     expect(page).to have_content "ユーザーを編集しました。"
-  #     expect(@user.reload.name).to eq "山田　一郎"
-  #     expect(@user.reload.email).to eq "tester100@example.com"
-  #     expect(@user.reload.password).to eq "1a1a1a"
-  #     expect(@user.reload.password_confirmation).to eq "1a1a1a"
-  #   end
-  #
-  #   xscenario "無効な値ならユーザー編集できないこと" do
-  #     fill_in "名前", with: nil
-  #     fill_in "メールアドレス", with: "tester100@example.com"
-  #     fill_in "パスワード", with: "123456"
-  #     fill_in "パスワード（確認）", with: "123456"
-  #     click_button "編集する"
-  #     expect(page).to have_content "正確な値を入力してください"
-  #     expect(@user.reload.name).not_to eq nil
-  #   end
-  # end
 end
