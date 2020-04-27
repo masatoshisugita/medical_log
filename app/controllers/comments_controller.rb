@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     #@comments = @topic.comments
     if @comment.save
-      render "_index"
+      render :index
     end
   end
 

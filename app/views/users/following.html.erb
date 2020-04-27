@@ -1,12 +1,19 @@
 <h1 class="text-center"><%= "#{@user.name}のフォロー一覧" %></h1>
-<div class="row">
-<% @users.each do |user| %>
-  <table width="100%">
-    <tbody>
-      <tr align="center">
-        <th><%= link_to user.name,user,:style=>"font-size:xx-large;" %></th>
+  <div class="mb-3">
+  <table class="table table-hover">
+    <thead class="thread-default">
+      <tr>
+        <th>ユーザー名</th>
+        <th>詳細</th>
       </tr>
-    </tbody>
+      <tbody>
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= link_to user.name, user_path(user) %></td>
+            <td><%= link_to '詳細',user_path(user),class: 'btn btn-success' %></td>
+          </tr>
+          <% end %>
+      </tbody>
+    </thead>
   </table>
-<% end %>
 </div>

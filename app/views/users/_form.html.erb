@@ -1,30 +1,30 @@
-<div class="row">
+<div class="row text-center">
   <div class="col-sm-12">
 
   <%= form_with model: user, local: true do |f| %>
-    <div class="form-group">
-      <%= f.label :name %><span>　※必須　(15文字以内)</span>
-      <%= f.text_field :name ,class: 'form-control'  %>
+    <div class="form-group mt-5">
+      <%= f.label :name %><span>　※必須　(15文字以内)</span><br>
+      <%= f.text_field :name ,:size=>"40"  %>
     </div>
 
-    <div class="form-group">
-      <%= f.label :email %><span>　※必須　(255文字以内)</span>
-      <%= f.text_field :email ,class: 'form-control'  %>
+    <div class="form-group mt-5">
+      <%= f.label :email %><span>　※必須　(255文字以内)</span><br>
+      <%= f.text_field :email ,:size=>"40" %>
     </div>
 
-    <div class="form-group">
-      <%= f.label :user_image %>
-      <%= f.file_field :user_image,class: 'form-control' %>
+    <div class="form-group mt-5">
+      <%= f.label :user_image %><span class="user-file">　※任意</span><br>
+      <%= f.file_field :user_image,:size=>"30" %>
     </div>
 
-    <div class="form-group">
-      <%= f.label :password %><span>　※必須　(6文字以上)</span>
-      <%= f.password_field :password ,class: 'form-control'  %>
+    <div class="form-group mt-5">
+      <%= f.label :password %><span>　※必須　(6文字以上)</span><br>
+      <%= f.password_field :password ,:size=>"40"  %>
     </div>
 
-    <div class="form-group">
-      <%= f.label :password_confirmation %><span>　※必須　(6文字以上)</span>
-      <%= f.password_field :password_confirmation ,class: 'form-control'  %>
+    <div class="form-group mt-5">
+      <%= f.label :password_confirmation %><span>　※必須　(6文字以上)</span><br>
+      <%= f.password_field :password_confirmation ,:size=>"40"  %>
     </div>
     <%= f.submit class: 'btn btn-primary' %>
   <% end %>
