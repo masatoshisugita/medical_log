@@ -13,7 +13,13 @@ RSpec.describe Relationship, type: :model do
   end
 
   it "followed_idが空なら無効なこと" do
-    relationship.follower_id = nil
+    relationship.followed_id = nil
     expect(relationship).not_to be_valid
+  end
+
+  it "follower_idとfollowed_idがユニークでないと無効なこと" do
+    relationship.follower_id = 1
+    relationship.followed_id = 2
+    expect(FactoryBot.build(:relationship,follower_id: 1,followed_id: 2)).not_to be_valid
   end
 end

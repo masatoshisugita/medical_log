@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "SignIns", type: :feature do
   before do
-    @user = FactoryBot.create(:user)
+    @user = FactoryBot.create(:user,email: "tester1@example.com")
   end
   scenario "有効な値ならユーザーがログインできること" do    
     activate @user
@@ -16,7 +16,7 @@ RSpec.feature "SignIns", type: :feature do
 
   scenario "有効化されていないユーザーはログインできないこと" do
     visit login_path
-    fill_in "メールアドレス", with: "tester2@example.com"
+    fill_in "メールアドレス", with: "tester1@example.com"
     fill_in "パスワード", with: "abc123"
     click_button "ログインする"
     
