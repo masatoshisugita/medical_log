@@ -1,24 +1,53 @@
-# README
+# アプリケーションの概要
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* 自分が経験した病気を投稿しシェアできるサービス
 
-Things you may want to cover:
+# アプリケーションの機能
 
-* Ruby version
+* フォロー機能(Ajax)
 
-* System dependencies
+* いいね機能(Ajax)
 
-* Configuration
+* コメント機能
 
-* Database creation
+* メールによるアカウントの有効化
 
-* Database initialization
+* bootstrapによるレスポンシブ対応
 
-* How to run the test suite
+* Dockerによる環境構築
 
-* Services (job queues, cache servers, search engines, etc.)
+* RSpecによるテスト記述
 
-* Deployment instructions
+# 使い方
 
-* ...
+* githubからファイルをダウンロード
+
+```
+https://github.com/masatoshisugita/medical_log.git
+```
+
+* ダウンロードしたファイルに移動し、以下のコマンドでdockerのimageとコンテナを作成
+
+```
+docker-compose build
+```
+
+* dockerのimageとコンテナはそれぞれ以下のコマンドで確認できる
+
+```
+docker images　# image一覧
+docker ps -a # コンテナ一覧。-aを省略すると現在起動しているコンテナのみ表示される
+```
+
+* imageとコンテナが確認できたら、DBを作成、反映する
+
+```
+docker-compose run web rails db:create
+docker-compose run web rails db:migrate
+```
+* これでブラウザでlocalhost:3000にアクセスするとtopページが開く。もし開かない場合は、コンテナが起動しているか確認する。動いていなければ以下のコマンドで起動させる
+```
+dokcer start コンテナのID
+```
+コンテナを停止させるには「start」を「stop」に変えればよい
+
