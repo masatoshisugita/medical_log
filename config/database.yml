@@ -27,5 +27,5 @@ test:
 production:
   <<: *default
   database: medical_log_production
-  username: medical_log
-  password: <%= ENV['SAMPLE_DATABASE_PASSWORD'] %>
+  username: root
+  password:
