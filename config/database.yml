@@ -25,7 +25,8 @@ test:
   database: medical_log_test
 
 production:
-  <<: *default
+  adapter: mysql2
+  encoding: utf8
   database: medical_log_production
   username: root
   password:
