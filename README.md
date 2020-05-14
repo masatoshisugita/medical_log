@@ -42,8 +42,8 @@ docker ps -a # コンテナ一覧。-aを省略すると現在起動している
 * imageとコンテナが確認できたら、DBを作成、反映する
 
 ```
-docker-compose run web rails db:create
-docker-compose run web rails db:migrate
+docker-compose run web bundle exec rails db:create
+docker-compose run web bundle exec rails db:migrate
 ```
 * これでブラウザでlocalhost:3000にアクセスするとtopページが開く。もし開かない場合は、コンテナが起動しているか確認する。動いていなければ以下のコマンドで起動させる
 ```

@@ -30,6 +30,15 @@ Rails.application.configure do
 
   host = 'http://18.180.194.137'
   Rails.application.routes.default_url_options[:host] = host
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:                 587,
+    address:              'smtp.gmail.com',
+    domain:               'gmail.com',
+    user_name:            Rails.application.credentials.gmail[:user_name],
+    password:             Rails.application.credentials.gmail[:password],
+    authentication:       'login'
+  }
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
 
