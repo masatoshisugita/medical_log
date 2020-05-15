@@ -1,0 +1,14 @@
+<div class="app-title navbar navbar-expand-md navbar-light bg-light">
+    <div class="navbar-brand"><%= link_to 'MedicalLog',root_path %></div>
+    <ul class="navbar-nav ml-auto">
+        <% if current_user %>
+          <li class="nav-item"><%=link_to "ユーザー名　#{current_user.name}",user_path(current_user),class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to '投稿一覧',topics_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to '投稿作成',new_topic_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to 'ログアウト',logout_path, method: :delete, class: 'nav-link' %></li>
+        <% else %>
+          <li><%= link_to 'ユーザー作成',new_user_path, class: 'nav-link' %></li>
+          <li><%= link_to 'ユーザーログイン',login_path, class: 'nav-link' %></li>
+        <% end %>
+    </ul>
+</div>
