@@ -64,7 +64,7 @@ RSpec.feature "Sign up", type: :feature do
 
       aggregate_failures do
         expect(mail.to).to eq ["tester1@example.com"]
-        expect(mail.from).to eq ["noreply@example.com"]
+        expect(mail.from).to eq ["no.reply.medical.log@gmail.com"]
         expect(mail.subject).to eq "Account activation"
         expect(mail.body.encoded).to match "Welcome to the MedicalLog!"
       end
