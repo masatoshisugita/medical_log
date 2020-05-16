@@ -40,6 +40,7 @@ docker-compose build
 docker images　# image一覧
 docker ps -a # コンテナ一覧。-aを省略すると現在起動しているコンテナのみ表示される
 ```
+もしコンテナが無ければ、docker-compose upでコンテナを作成する
 
 * imageとコンテナが確認できたら、DBを作成、反映する
 
