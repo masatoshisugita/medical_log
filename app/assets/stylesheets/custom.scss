@@ -5,6 +5,11 @@ body,
   min-height: 100vh;
 }
 
+///  ヘッダー  ///
+.header {
+  background-color: #EEE;
+}
+
 //// フッター ////
 footer {
   margin-top: auto;
@@ -29,4 +34,8 @@ color: red;
 
 .user-file {
 color: blue;
+}
+
+.user {
+  text-align: center;
 }

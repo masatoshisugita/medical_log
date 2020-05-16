@@ -10,10 +10,10 @@
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <%= render 'layouts/header'%>
+  <%= render 'layouts/header' %>
 
   <body>
-    <div id=wrapper>
+    <div id="wrapper mt-3">
       <div class="container">
         <% flash.each do |message_type, message| %>
           <div class="mt-3 alert alert-<%= message_type %>"><%= message %></div>
@@ -21,7 +21,7 @@
       <%= yield %>
       </div>
 
-      <%= render 'layouts/footer'%>
+      <%= render 'layouts/footer' %>
 
     </div>
   </body>
