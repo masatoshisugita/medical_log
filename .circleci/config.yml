@@ -1,0 +1,28 @@
+version: 2.1
+jobs:
+  build:
+    #docker-composeがインストールしている仮想マシンをpullする
+    machine:
+      image: circleci/classic:edge
+    steps:
+      - checkout
+      - run:
+          name: database.ymlの再設定
+          command: |
+            rm ./config/database.yml
+            mv ./config/database.ci.yml ./config/database.yml
+      - run:
+          name: コンテナを作成
+          command: docker-compose build
+      - run:
+          name: コンテナを起動
+          command: docker-compose up -d
+      - run:
+          name: DBを作成
+          command: docker-compose run web bundle esxec rails db:create db:migrate
+      - run:
+          name: RSpecを行う
+          command: docker-compose run web bundle exec rspec
+      - run:
+          name: コンテナを停止
+          command: docker-compose down
