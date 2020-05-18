@@ -1,28 +1,15 @@
 version: 2.1
+orbs:
+  ruby: circleci/ruby@0.1.2 
+
 jobs:
   build:
-    #docker-composeがインストールしている仮想マシンをpullする
-    machine:
-      image: circleci/classic:edge
+    docker:
+      - image: circleci/ruby:2.6.3-stretch-node
+    executor: ruby/default
     steps:
       - checkout
       - run:
-          name: database.ymlの再設定
-          command: |
-            rm ./config/database.yml
-            mv ./config/database.ci.yml ./config/database.yml
-      - run:
-          name: コンテナを作成
-          command: docker-compose build
-      - run:
-          name: コンテナを起動
-          command: docker-compose up -d
-      - run:
-          name: DBを作成
-          command: docker-compose run web bundle esxec rails db:create db:migrate
-      - run:
-          name: RSpecを行う
-          command: docker-compose run web bundle exec rspec
-      - run:
-          name: コンテナを停止
-          command: docker-compose down
+          name: Which bundler?
+          command: bundle -v
+      - ruby/bundle-install
