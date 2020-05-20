@@ -4,11 +4,11 @@ jobs:
     # docker-composeがインストール済みの仮想マシンをプル
     docker:
       image: circleci/ruby:2.5.3-node-browsers
-        environment:
-          - BUNDLER_VERSION: 2.0.2
+        environment: 
+          - BUNDLER_VERSION: 1.17.1
           - RAILS_ENV: 'test'
       image: circleci/mysql:5.7
-        environment:
+        environment: 
           - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           - MYSQL_ROOT_HOST: '127.0.0.1'
     steps:
