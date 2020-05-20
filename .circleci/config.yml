@@ -2,8 +2,15 @@ version: 2.1
 jobs:
   build:
     # docker-composeがインストール済みの仮想マシンをプル
-    machine:
-      image: circleci/classic:edge
+    docker:
+      image: circleci/ruby:2.5.3-node-browsers
+      environment:
+        - BUNDLER_VERSION: 2.0.2
+        - RAILS_ENV: 'test'
+      image: circleci/mysql:5.7
+      environment:
+        - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+        - MYSQL_ROOT_HOST: '127.0.0.1'
     steps:
       - checkout
       - run:
