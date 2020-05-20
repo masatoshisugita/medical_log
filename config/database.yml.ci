@@ -4,5 +4,5 @@ test:
   pool: 5
   username: root
   password: password
-  host: localhost
+  host: db
   database: medical_log_test
