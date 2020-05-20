@@ -2,15 +2,8 @@ version: 2.1
 jobs:
   build:
     # docker-composeがインストール済みの仮想マシンをプル
-    docker:
-      - image: circleci/ruby:2.5.3-node-browsers
-        environment: 
-          - BUNDLER_VERSION: 1.17.1
-          - RAILS_ENV: 'test'
-      - image: circleci/mysql:5.7
-        environment: 
-          - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-          - MYSQL_ROOT_HOST: '127.0.0.1'
+    machine:
+      image: circleci/classic:edge
     steps:
       - checkout
       - run:
@@ -26,9 +19,9 @@ jobs:
           command: docker-compose up -d
       - run:
           name: コンテナの起動を待つ
-          command: dockerize -wait tcp://localhost:3306 -timeout 1m
+          command: sleep 1
       - run:
-          name: データベースのセットアップ
+          name: DBのセットアップ
           command: docker-compose run web bundle exec rails db:create db:migrate RAILS_ENV=test
       - run:
           name: RSpecテスト実行
