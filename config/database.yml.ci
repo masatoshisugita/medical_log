@@ -3,5 +3,5 @@ test:
   encoding: utf8
   pool: 5
   username: root
-  password: password
-  host: <%= ENV['DB_HOST'] %>
+  password:
+  host: localhost
