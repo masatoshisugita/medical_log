@@ -19,10 +19,10 @@ jobs:
           command: docker-compose up -d
       - run:
           name: データベースのセットアップ
-          command: docker-compose exec web bundle exec rails db:create db:migrate RAILS_ENV=test
+          command: docker-compose run web bundle exec rails db:create db:migrate RAILS_ENV=test
       - run:
           name: RSpecテスト実行
-          command: docker-compose exec web bundle exec rspec
+          command: docker-compose run web bundle exec rspec
       - run:
           name: Dockerコンテナの停止
           command: docker-compose down
