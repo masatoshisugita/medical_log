@@ -23,6 +23,12 @@ jobs:
       - run:
           name: DBのセットアップ
           command: docker-compose run web bundle exec rails db:create db:migrate RAILS_ENV=test
+      -run:
+          name: webpackerをインストール
+          command: rails webpacker:install
+      - run:
+          name: webpackerをコンパイル
+          command: docker-compose run web bundle exec RAILS_ENV=test bundle exec rails webpacker:compile
       - run:
           name: RSpecテスト実行
           command: docker-compose run web bundle exec rspec
