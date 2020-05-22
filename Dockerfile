@@ -1,7 +1,9 @@
 FROM ruby:2.5.3
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
-        && apt-get install -y nodejs
+        && apt-get install -y nodejs npm && npm install -g n && \
+        n stable && \
+        npm install -g yarn
 
 RUN mkdir /medical_log
 

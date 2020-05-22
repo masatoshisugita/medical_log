@@ -18,8 +18,20 @@ jobs:
           name: Dockerコンテナの起動
           command: docker-compose up -d
       - run:
-          name: データベースのセットアップ
+          name: コンテナの起動を待つ
+          command: sleep 100
+      - run:
+          name: DBのセットアップ
           command: docker-compose run web bundle exec rails db:create db:migrate RAILS_ENV=test
+      - run:
+          name: webpackerを一旦削除
+          command: rm -rf config/webpacker.yml
+      - run:
+          name: config/webpack/environment.jsを一旦削除
+          command: rm -rf config/webpack/environment.js    
+      - run:
+          name: webpackerをインストール
+          command: docker-compose run web bundle exec rails webpacker:install RAILS_ENV=test
       - run:
           name: RSpecテスト実行
           command: docker-compose run web bundle exec rspec
