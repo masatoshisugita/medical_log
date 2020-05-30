@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "AccountActivations", type: :request do
-  describe "#edit" do
-    it "@userはアカウントを有効化できること" do
+RSpec.describe 'AccountActivations', type: :request do
+  describe '#edit' do
+    it '@userはアカウントを有効化できること' do
       @user = FactoryBot.create(:user)
       get edit_account_activation_path(@user.id)
       activate @user

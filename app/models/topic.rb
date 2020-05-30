@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Topic < ApplicationRecord
   belongs_to :user
 
@@ -10,8 +12,6 @@ class Topic < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   def self.searching(sick_name)
-    if sick_name
-      Topic.where(['sick_name LIKE ?',"%#{sick_name}%"])  
-    end
+    Topic.where(['sick_name LIKE ?', "%#{sick_name}%"]) if sick_name
   end
 end

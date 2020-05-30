@@ -33,6 +33,9 @@ jobs:
           name: webpackerをインストール
           command: docker-compose run web bundle exec rails webpacker:install RAILS_ENV=test
       - run:
+          name: rubocopを実行
+          command: docker-compose run web bundle exec rubocop
+      - run:
           name: RSpecテスト実行
           command: docker-compose run web bundle exec rspec
       - run:

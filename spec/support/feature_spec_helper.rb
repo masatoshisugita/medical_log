@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 module FeatureSpecHelper
   def sign_in(user)
     visit login_path
-    fill_in "メールアドレス", with: "#{user.email}"
-    fill_in "パスワード", with: "#{user.password}"
-    click_button "ログインする"
+    fill_in 'メールアドレス', with: user.email.to_s
+    fill_in 'パスワード', with: user.password.to_s
+    click_button 'ログインする'
   end
 
   # def sign_out(user)
@@ -14,7 +16,7 @@ module FeatureSpecHelper
     user.update!(activated: true, activated_at: Time.current)
   end
 
-  #other_userをフォローする
+  # other_userをフォローする
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
   end
