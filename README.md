@@ -22,6 +22,8 @@
 
 * circleCIの導入
 
+* rubocopの導入
+
 # 使い方
 
 * githubからファイルをダウンロード
@@ -56,3 +58,4 @@ dokcer start コンテナのID
 ```
 コンテナを停止させるには「start」を「stop」に変えればよい
 
+注意　master.keyがgithub上にないため、ユーザー登録をしようとするとエラーになる！！
