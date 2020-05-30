@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.feature "Comments", type: :feature do
+RSpec.feature 'Comments', type: :feature do
   # before do
   #   @user = FactoryBot.create(:user)
   #   @other_user = FactoryBot.create(:user)
@@ -22,8 +24,4 @@ RSpec.feature "Comments", type: :feature do
   #   click_link "削除する"
   #   expect(page).not_to have_content "がんばりましょう！"
   # end
-end
-
-def comments
-  comments = @topic.comments
 end

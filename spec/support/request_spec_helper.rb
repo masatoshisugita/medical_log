@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module RequestSpecHelper
   def sign_in(user)
-    post login_path, params: { session: { email: user.email,password: user.password } }
+    post login_path, params: { session: { email: user.email, password: user.password } }
   end
 
   # def sign_out(user)
@@ -11,7 +13,7 @@ module RequestSpecHelper
     user.update!(activated: true, activated_at: Time.current)
   end
 
-  #other_userをフォローする
+  # other_userをフォローする
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
   end
