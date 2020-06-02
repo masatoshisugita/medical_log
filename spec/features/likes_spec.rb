@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.feature 'Comments', type: :feature do
+RSpec.feature 'Likes', type: :feature do
   before do
     @user = FactoryBot.create(:user)
     @other_user = FactoryBot.create(:user)
@@ -13,7 +13,7 @@ RSpec.feature 'Comments', type: :feature do
     visit topic_path(@topic)
   end
 
-  scenario 'コメントボタンがあること' do
-    expect(page).to have_button 'コメントをする'
+  scenario 'いいねボタンがあること' do
+    expect(page).to have_link '♡'
   end
 end

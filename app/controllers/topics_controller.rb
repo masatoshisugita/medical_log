@@ -2,6 +2,7 @@
 
 class TopicsController < ApplicationController
   before_action :set_topic, only: %i[show edit update destroy]
+  before_action :correct_topic, only: %i[edit update]
 
   def index
     @topics = Topic.paginate(page: params[:page], per_page: 5)
@@ -67,5 +68,12 @@ class TopicsController < ApplicationController
 
   def set_topic
     @topic = Topic.find(params[:id])
+  end
+
+  def correct_topic
+    if current_user.id != @topic.user_id
+      flash[:danger] = 'こちらのURLにはアクセスできません。'
+      redirect_to root_url
+    end
   end
 end

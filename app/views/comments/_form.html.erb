@@ -1,7 +1,7 @@
 <%= form_with(model: [topic, comment]) do |f| %>
   <div>
     <%= f.label :review %><span>(150文字以内)</span><br>
-    <%= f.text_area :review %>
+    <%= f.text_area :review,placeholder: "コメントはこちら" %>
   </div>
   <div class="actions mb-3">
     <%= f.submit "コメントをする", class: "btn btn-x btn-outline-secondary" %>

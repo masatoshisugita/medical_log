@@ -1,11 +1,17 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy]
+  before_action :set_user, only: %i[show edit update destroy following followers]
+  before_action :correct_user, only: %i[edit update]
   skip_before_action :login_required, only: %i[new create]
 
   def new
-    @user = User.new
+    if current_user.nil?
+      @user = User.new
+    else
+      flash[:danger] = 'こちらのURLにはアクセスするには、ログアウトが必要です。'
+      redirect_to root_url
+    end
   end
 
   def create
@@ -47,13 +53,11 @@ class UsersController < ApplicationController
 
   # @userがフォローしているユーザーを表示するメソッド
   def following
-    @user = User.find(params[:id])
     @users = @user.following_user
   end
 
   # @userをフォローしているユーザーを表示するメソッド
   def followers
-    @user = User.find(params[:id])
     @users = @user.follower_user
   end
 
@@ -65,5 +69,12 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def correct_user
+    if current_user != User.find(params[:id])
+      flash[:danger] = 'こちらのURLにはアクセスできません。'
+      redirect_to root_url
+    end
   end
 end
