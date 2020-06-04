@@ -2,6 +2,7 @@
   <div class="col-sm-12">
 
   <%= form_with model: user, local: true do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
     <div class="form-group mt-5">
       <%= f.label :name %><span>　※必須　(15文字以内)</span><br>
       <%= f.text_field :name ,:size=>"40",class: "form_user",placeholder: "名前を入力してください"  %>

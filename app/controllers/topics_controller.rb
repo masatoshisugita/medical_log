@@ -18,7 +18,7 @@ class TopicsController < ApplicationController
       flash[:success] = "「#{@topic.sick_name}」を登録しました。"
       redirect_to @topic
     else
-      flash[:danger] = '有効な値を入力してください。'
+      flash[:danger] = '登録に失敗しました'
       render :new
     end
   end
@@ -31,10 +31,12 @@ class TopicsController < ApplicationController
   def edit; end
 
   def update
-    if current_user.id == @topic.user_id
-      @topic.update(topic_params)
+    if current_user.id == @topic.user_id && @topic.update(topic_params)
       flash[:success] = 'トピックを更新しました。'
       redirect_to @topic
+    else
+      flash.now[:danger] = '編集に失敗しました'
+      render :edit
     end
   end
 

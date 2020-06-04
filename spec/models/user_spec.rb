@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
   it 'nameが空なら無効なこと' do
     user = FactoryBot.build(:user, name: nil)
     user.valid?
-    expect(user.errors[:name]).to include('名前が空になっています')
+    expect(user.errors[:name]).to be_present
   end
 
   it 'nameが16文字以上なら無効なこと' do
@@ -22,7 +22,7 @@ RSpec.describe User, type: :model do
   it 'emailが空なら無効なこと' do
     user = FactoryBot.build(:user, email: nil)
     user.valid?
-    expect(user.errors[:email]).to include('メールアドレスが空になっています')
+    expect(user.errors[:email]).to be_present
   end
 
   it 'emailが256文字以上なら無効なこと' do
@@ -47,7 +47,7 @@ RSpec.describe User, type: :model do
   it 'passwordが空なら無効なこと' do
     user = FactoryBot.build(:user, password: nil)
     user.valid?
-    expect(user.errors[:password]).to include('パスワードが空になっています')
+    expect(user.errors[:password]).to be_present
   end
 
   it 'passwordが5文字以下なら無効なこと' do
@@ -59,7 +59,7 @@ RSpec.describe User, type: :model do
   it 'password_confirmationが空なら無効なこと' do
     user = FactoryBot.build(:user, password_confirmation: nil)
     user.valid?
-    expect(user.errors[:password_confirmation]).to include('パスワード（確認）が空になっています')
+    expect(user.errors[:password_confirmation]).to be_present
   end
 
   it 'passwordとpassword_confirmationが一致していないと無効なこと' do

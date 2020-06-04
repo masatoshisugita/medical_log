@@ -2,6 +2,8 @@
   <div class="col-sm-12">
 
   <%= form_with model: topic, local: true do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+
     <div class="form-group">
       <%= f.label :sick_name %><span>　※必須　(30文字以内)</span><br>
       <%= f.text_field :sick_name , :size=>"30",class: "form_topic",placeholder: "病気の名前を入力して下さい"  %>

@@ -6,6 +6,7 @@ ja:
       update: 編集する
   activerecord:
     models:
+      user:
       topic:
     attributes:
       user:
@@ -13,7 +14,7 @@ ja:
         email: メールアドレス
         user_image: 画像
         password: パスワード
-        password_confirmation: パスワード（確認）
+        password_confirmation: パスワード(確認)
       topic:
         sick_name: 病気の名前
         period: 期間
@@ -26,19 +27,31 @@ ja:
         user:
           attributes:
             name:
-              blank: "名前が空になっています"
+              blank: "が空になっています"
+              too_long: "は15文字以内で入力して下さい"
             email:
-              blank: "メールアドレスが空になっています"
+              blank: "が空になっています"
+              too_long: "は255文字以内で入力して下さい"
+              taken: "はすでに存在します"
+              invalid: "を正しく入力して下さい"
             password:
-              blank: "パスワードが空になっています"
+              blank: "が空になっています"
+              too_short: "は6文字以上で入力して下さい"
             password_confirmation:
-              blank: "パスワード（確認）が空になっています"
+              blank: "が空になっています"
+              confirmation: "とパスワードが一致していません"
         topic:
           attributes:
             sick_name:
-              blank: "病気の名前が空になっています"
+              blank: "が空になっています"
+              too_long: "は30文字以内で入力して下さい"
+            period:
+              too_long: "は20文字以内で入力して下さい"
+            initial_symptom:
+              too_long: "は50文字以内で入力して下さい"
             content:
-              blank: "内容が空になっています"
+              blank: "が空になっています"
+              too_long: "は400文字以内で入力して下さい"
         comment:
           attributes:
             review:
