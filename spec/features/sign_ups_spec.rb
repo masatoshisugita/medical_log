@@ -21,7 +21,7 @@ RSpec.feature 'Sign up', type: :feature do
       fill_in 'パスワード', with: '123abc'
       fill_in 'パスワード（確認）', with: '123abc'
       expect { click_button '登録する' }.not_to change { User.count }
-      expect(page).to have_content '正確な値を入力してください'
+      expect(page).to have_content '登録に失敗しました'
     end
 
     scenario 'メールアドレスが無効な値ならユーザ登録できないこと' do
@@ -31,7 +31,7 @@ RSpec.feature 'Sign up', type: :feature do
       fill_in 'パスワード', with: '123abc'
       fill_in 'パスワード（確認）', with: '123abc'
       expect { click_button '登録する' }.not_to change { User.count }
-      expect(page).to have_content '正確な値を入力してください'
+      expect(page).to have_content '登録に失敗しました'
     end
 
     scenario 'パスワードが無効な値ならユーザー登録ができないこと' do
@@ -41,7 +41,7 @@ RSpec.feature 'Sign up', type: :feature do
       fill_in 'パスワード', with: '123'
       fill_in 'パスワード（確認）', with: '123'
       expect { click_button '登録する' }.not_to change { User.count }
-      expect(page).to have_content '正確な値を入力してください'
+      expect(page).to have_content '登録に失敗しました'
     end
 
     scenario 'パスワードとパスワード（確認）が一致しないならユーザー登録ができないこと' do
@@ -51,7 +51,7 @@ RSpec.feature 'Sign up', type: :feature do
       fill_in 'パスワード', with: '123abc'
       fill_in 'パスワード（確認）', with: 'abc123'
       expect { click_button '登録する' }.not_to change { User.count }
-      expect(page).to have_content '正確な値を入力してください'
+      expect(page).to have_content '登録に失敗しました'
     end
 
     scenario '有効な値ならメールが送られること' do

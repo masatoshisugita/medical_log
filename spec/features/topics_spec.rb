@@ -27,7 +27,7 @@ RSpec.feature 'Topics', type: :feature do
       fill_in '初期症状', with: '鼻水、喉の痛み、節々の痛み'
       fill_in '内容', with: '医者に行ったらただの風邪でした。薬を飲んだら治りました！'
       expect { click_button '登録する' }.not_to change { Topic.count }
-      expect(page).to have_content '有効な値を入力してください。'
+      expect(page).to have_content '登録に失敗しました'
     end
 
     scenario '自分が投稿したtopicなら編集できること' do

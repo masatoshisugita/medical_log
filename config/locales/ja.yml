@@ -14,7 +14,7 @@ ja:
         email: メールアドレス
         user_image: 画像
         password: パスワード
-        password_confirmation: パスワード(確認)
+        password_confirmation: パスワード（確認）
       topic:
         sick_name: 病気の名前
         period: 期間
