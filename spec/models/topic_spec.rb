@@ -10,7 +10,7 @@ RSpec.describe Topic, type: :model do
   it 'sick_nameが空なら無効なこと' do
     topic = FactoryBot.build(:topic, sick_name: nil)
     topic.valid?
-    expect(topic.errors[:sick_name]).to include('病気の名前が空になっています')
+    expect(topic.errors[:sick_name]).to be_present
   end
 
   it 'sick_nameが31文字以上なら無効なこと' do
@@ -34,7 +34,7 @@ RSpec.describe Topic, type: :model do
   it 'contentが空なら無効なこと' do
     topic = FactoryBot.build(:topic, content: nil)
     topic.valid?
-    expect(topic.errors[:content]).to include('内容が空になっています')
+    expect(topic.errors[:content]).to be_present
   end
 
   it 'contentが401文字以上なら無効なこと' do

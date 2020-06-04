@@ -1,4 +1,5 @@
 <%= form_with(model: [topic, comment]) do |f| %>
+
   <div>
     <%= f.label :review %><span>(150文字以内)</span><br>
     <%= f.text_area :review,placeholder: "コメントはこちら" %>

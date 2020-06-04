@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       flash[:info] = '送信されたメールアドレスからアカウントを有効にしてください'
       redirect_to root_url
     else
-      flash[:danger] = '正確な値を入力してください'
+      flash.now[:danger] = '登録に失敗しました'
       render :new
     end
   end
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
       flash[:success] = 'ユーザーを編集しました。'
       redirect_to @user
     else
-      flash[:danger] = '正確な値を入力してください'
+      flash.now[:danger] = '登録に失敗しました'
       render :edit
     end
   end
