@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     render :index if @comment.save
   end
-  
+
   def destroy
     @comment = Comment.find(params[:id])
     render :index if @comment.destroy
