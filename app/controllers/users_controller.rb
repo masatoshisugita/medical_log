@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @topics = @user.topics.all
+    @topics = @user.topics.paginate(page: params[:page], per_page: 5)
   end
 
   def edit; end
@@ -53,12 +53,12 @@ class UsersController < ApplicationController
 
   # @userがフォローしているユーザーを表示するメソッド
   def following
-    @users = @user.following_user
+    @users = @user.following_user.paginate(page: params[:page], per_page: 10)
   end
 
   # @userをフォローしているユーザーを表示するメソッド
   def followers
-    @users = @user.follower_user
+    @users = @user.follower_user.paginate(page: params[:page], per_page: 10)
   end
 
   private
