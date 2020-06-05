@@ -1,4 +1,8 @@
 ja:
+  will_paginate:
+    previous_label: &lt 前へ
+    next_label: 次へ &gt
+    page_gap: ...
   helpers:
     submit:
       create: 登録する

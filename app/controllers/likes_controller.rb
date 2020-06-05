@@ -3,7 +3,7 @@
 class LikesController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @likes = @user.likes.all
+    @likes = @user.likes.paginate(page: params[:page], per_page: 10)
   end
 
   def create

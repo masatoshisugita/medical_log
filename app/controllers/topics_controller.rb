@@ -52,6 +52,7 @@ class TopicsController < ApplicationController
     @search = params[:search] # viewに表示するため
     if @search.present?
       @topics = Topic.searching(params[:search])
+      @topics = @topics.paginate(page: params[:page], per_page: 10)
       if @topics.blank?
         flash[:danger] = "「#{@search}」に一致する病名は現在ありません。"
         redirect_to root_url
