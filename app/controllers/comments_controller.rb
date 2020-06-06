@@ -5,12 +5,12 @@ class CommentsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @comment = @topic.comments.build(comment_params)
     @comment.user_id = current_user.id
-    render :index if @comment.save
+    @comment.save
   end
 
   def destroy
     @comment = Comment.find(params[:id])
-    render :index if @comment.destroy
+    @comment.destroy
   end
 
   private

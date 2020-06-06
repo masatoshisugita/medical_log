@@ -1,0 +1,3 @@
+$("#comments_area").html("<%= j(render 'index', { comments: @comment.topic.comments }) %>")
+$("#error_explanation").html("<%= j(render 'error', { comment: @comment }) %>")
+$("textarea").val("")

@@ -59,4 +59,5 @@ ja:
         comment:
           attributes:
             review:
-              blank: "コメントが空になっています"
+              blank: "が空になっています"
+              too_long: "は150文字以内で入力して下さい"
