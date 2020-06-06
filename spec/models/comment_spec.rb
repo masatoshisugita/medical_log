@@ -10,7 +10,7 @@ RSpec.describe Comment, type: :model do
   it 'reviewが空なら無効なこと' do
     comment = FactoryBot.build(:comment, review: nil)
     comment.valid?
-    expect(comment.errors[:review]).to include('コメントが空になっています')
+    expect(comment.errors[:review]).to be_present
   end
 
   it 'reviewが151文字以上なら無効なこと' do

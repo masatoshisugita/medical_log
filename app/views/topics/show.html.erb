@@ -43,6 +43,10 @@
   <div id="comments_area">
     <%= render partial: 'comments/index', locals: { comments: @comments } %>
   </div>
+  <div id="error_explanation">
+  </div>
+  <div id="form_area">
   <% if current_user %>
     <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
   <% end %>
+</div>
