@@ -13,7 +13,7 @@ class UserImageUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     if Rails.env.test?
-    "uploads_#{Rails.env}/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+      "uploads_#{Rails.env}/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
     else
       "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
     end

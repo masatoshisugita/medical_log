@@ -49,9 +49,7 @@ RSpec.configure do |config|
 
   # テストの度にユーザーの画像を削除
   config.after(:all) do
-    if Rails.env.test?
-      FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads_#{Rails.env}/"])
-    end
+    FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads_#{Rails.env}/"]) if Rails.env.test?
   end
   # You can disable this behaviour by removing the line below, and instead
   # explicitly tag your specs with their type, e.g.:
