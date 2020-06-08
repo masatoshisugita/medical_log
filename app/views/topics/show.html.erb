@@ -1,27 +1,47 @@
-<h1 class="mt-3 text-center"><%= "#{@topic.sick_name}の詳細" %></h1>
-
 <div class="row">
+  <h1 class="mt-3"><%= "#{@topic.sick_name}の詳細" %></h1>
+  <%= link_to "https://twitter.com/share?url=#{request.url}/&text=MedicalLogに「#{@topic.sick_name}」を投稿しました",class: "mt-4 ml-5" do %>
+    <i class="fab fa-twitter fa-2x"></i>
+  <% end %>
+
+  <div class="col-offset-md-6 col-md-3 mt-3">
+    <%= link_to "https://line.me/R/msg/text/?http://18.180.194.137/topics/#{@topic.id}",class: "mt-4 ml-4" do %>
+      <i class="fab fa-line fa-3x" style="color: green;"></i>
+    <% end %>
+  </div>
+    <!-- <div class="line-it-button" data-lang="ja" data-type="share-b" data-ver="3" data-url="http://18.180.194.137" data-color="default" data-size="large" data-count="false"">
+  </div></div> -->
+  <!-- <%= link_to "https://www.facebook.com/share.php?url=http://18.180.194.137/topics/#{@topic.id}/&text=MedicalLogに「#{@topic.sick_name}」を投稿しました",class: "mt-4 ml-4" do %>
+    <i class="fab fa-facebook fa-2x"></i>
+  <% end %> -->
+</div>
+
+<div class="row form_show">
   <table class="table table-hover">
     <tbody>
       <tr>
-        <th>ユーザー名</th>
-        <th><%= link_to @topic.user.name,@topic.user %></th>
+        <th class="">ユーザー名</th>
+        <td class="text-center"><%= link_to @topic.user.name,@topic.user %></td>
       </tr>
         <tr>
           <th>病気の名前</th>
-          <th><%= @topic.sick_name %></th>
+          <td class="text-center"><%= @topic.sick_name %></td>
         </tr>
         <tr>
           <th>期間</th>
-          <th><%= @topic.period %></th>
+          <td class="text-center"><%= @topic.period %></td>
         </tr>
         <tr>
           <th>初期症状</th>
-          <th><%= @topic.initial_symptom %></th>
+          <td class="text-center"><%= @topic.initial_symptom %></td>
         </tr>
         <tr>
           <th>内容</th>
-          <th><%= @topic.content %></th>
+          <td class="text-center"><%= @topic.content %></td>
+        </tr>
+        <tr>
+          <th></th>
+          <td></td>
         </tr>
     </tbody>
   </table>
@@ -34,7 +54,7 @@
         <%= link_to '編集',edit_topic_path, class: 'btn btn-primary mr-3' %>
         <%= link_to '削除',@topic,method: :delete,data: { confirm: "タスク「#{@topic.sick_name}」を削除します。よろしいですか？" },class: 'btn btn-danger' %>
       <% end %>
-  </div>
+    </div>
     <div class="float-right buttons_<%= @topic.id %>"><%= render partial: 'likes/like',locals: { topic: @topic } %></div>
   </div>
 </div>

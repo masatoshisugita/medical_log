@@ -21,32 +21,32 @@ RSpec.feature 'Relationships', type: :feature do
     expect(page).not_to have_button 'フォローする'
   end
 
-  scenario '自分の詳細ページには、「フォロー解除する」ボタンが無いこと' do
+  scenario '自分の詳細ページには、「フォロー解除」ボタンが無いこと' do
     visit user_path(@user)
-    expect(page).not_to have_button 'フォロー解除する'
+    expect(page).not_to have_button 'フォロー解除'
   end
 
-  scenario 'フォローすると「フォロー解除する」ボタンがあること' do
+  scenario 'フォローすると「フォロー解除」ボタンがあること' do
     visit user_path(@other_user)
     click_button 'フォローする'
-    expect(page).to have_button 'フォロー解除する'
+    expect(page).to have_button 'フォロー解除'
   end
 
-  scenario 'フォロー解除すると「フォローする」ボタンがあること' do
+  scenario 'フォローしてフォロー解除すると「フォローする」ボタンがあること' do
     visit user_path(@other_user)
     click_button 'フォローする'
-    click_button 'フォロー解除する'
+    click_button 'フォロー解除'
     expect(page).to have_button 'フォローする'
   end
 
-  scenario 'フォローしている時、フォロー一覧ページが表示できること' do
+  scenario 'フォローしている時、フォロー一覧ページに名前が表示できること' do
     visit user_path(@other_user)
     click_button 'フォローする'
     visit following_user_path(@user)
     expect(page).to have_link @other_user.name.to_s
   end
 
-  scenario 'フォロワー一覧ページが表示できること' do
+  scenario 'フォローされている時、フォロワー一覧ページに名前が表示できること' do
     visit user_path(@other_user)
     click_button 'フォローする'
     visit followers_user_path(@other_user)
