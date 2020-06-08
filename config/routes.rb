@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :topics do
+    post :import, on: :collection
     resources :comments, only: [:create, :destroy]
   end
 
