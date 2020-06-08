@@ -28,13 +28,6 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-/public/packs
-/public/packs-test
-/yarn-error.log
-yarn-debug.log*
-.yarn-integrity
-/node_modules
-
 # アップロードされたテスト画像を無視する
 /public/uploads
 

@@ -46,6 +46,11 @@ RSpec.configure do |config|
   config.after(:all, js: true) do
     Capybara.use_default_driver
   end
+
+  # テストの度にユーザーの画像を削除
+  config.after(:all) do
+    FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads_#{Rails.env}/"]) if Rails.env.test?
+  end
   # You can disable this behaviour by removing the line below, and instead
   # explicitly tag your specs with their type, e.g.:
   #
