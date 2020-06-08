@@ -6,6 +6,11 @@ class TopicsController < ApplicationController
 
   def index
     @topics = Topic.paginate(page: params[:page], per_page: 5)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @topics.generate_csv, filename: "topics-#{Time.zone.now.strftime('%Y%m%d%S')}.csv" }
+    end
   end
 
   def new
@@ -61,6 +66,24 @@ class TopicsController < ApplicationController
       flash[:danger] = '病気の名前を入力してください。'
       redirect_to root_url
     end
+  end
+
+  def import
+    num = Topic.all.count
+
+    if params[:file].blank?
+      flash[:danger] = 'ファイルを選択して下さい'
+    elsif File.extname(params[:file]) != '.csv'
+      flash[:danger] = 'csvファイルを選択して下さい'
+    else
+      current_user.topics.import(params[:file])
+      if num < Topic.all.count
+        flash[:success] = 'topicを追加しました'
+      else
+        flash[:danger] = 'topicを追加できませんでした。csvファイルの中身が正しくありません'
+      end
+    end
+    redirect_to topics_url
   end
 
   private
