@@ -22,18 +22,18 @@ class Topic < ApplicationRecord
 
   def self.generate_csv
     CSV.generate(headers: true) do |csv|
-      csv << csv_attributes
-      all.find_each do |topic|
-        csv << csv_attributes.map { |attr| topic.send(attr) }
+      csv << csv_attributes # 1行目を追加する
+      all.find_each do |topic| # 全てのTopicを一行ずつ処理する
+        csv << csv_attributes.map { |attr| topic.send(attr) } # attrに属性を入れてsendで中身を取り出す
       end
     end
   end
 
   # csv入力機能
   def self.import(file)
-    CSV.foreach(file.path, headers: true) do |row|
-      topic = new
-      topic.attributes = row.to_hash.slice(*csv_attributes)
+    CSV.foreach(file.path, headers: true) do |row| # 渡されたfileのpassを使ってrowに一行ずつcsvの文字列を入れている
+      topic = new # Topicのインスタンスを生成
+      topic.attributes = row.to_hash.slice(*csv_attributes) # インスタンスの各属性にcsvの一行を加工して入れる
       topic.save! if topic.valid?
     end
   end

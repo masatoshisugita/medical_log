@@ -1,0 +1,14 @@
+<h1 class="text-center mt-3 mb-5">メールアドレス入力（パスワード再設定）</h1>
+
+<div class="row text-center mb-1">
+  <div class="col-sm-12">
+    <p>入力したメールアドレスにパスワード再設定用のフォームをお送りします</p>
+  <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+    <div class="form-group mt-5">
+      <%= f.label :email %><span>　※必須　Gmailのみ有効(255文字以内)</span><br>
+      <%= f.text_field :email ,:size=>"40",class: "form_user",placeholder: "登録したメールアドレスを入力してください" %>
+    </div>
+    <%= f.submit "送信" ,class: 'btn btn-primary' %>
+  <% end %>
+  </div>
+</div>
