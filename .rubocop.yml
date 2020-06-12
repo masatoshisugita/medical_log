@@ -53,3 +53,6 @@ Style/MultilineTernaryOperator:
 
 Layout/LineLength:
   Enabled: false
+
+Naming/AccessorMethodName:
+  Enabled: false

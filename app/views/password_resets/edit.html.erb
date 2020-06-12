@@ -1,0 +1,20 @@
+<h1 class="text-center mt-3 mb-5">パスワード再設定</h1>
+
+<div class="row text-center mb-1">
+  <div class="col-sm-12">
+  <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
+    
+    <%= hidden_field_tag :email, @user.email %>
+    <div class="form-group mt-5">
+      <%= f.label :password %><span>　※必須　(6文字以上)</span><br>
+      <%= f.password_field :password ,:size=>"40",class: "form_user",placeholder: "新しいパスワードを入力してください"  %>
+    </div>
+
+    <div class="form-group mt-5">
+      <%= f.label :password_confirmation %><span>　※必須　(6文字以上)</span><br>
+      <%= f.password_field :password_confirmation ,:size=>"40",class: "form_user",placeholder: "再度新しいパスワードを入力してください"  %>
+    </div>
+    <%= f.submit "更新" ,class: 'btn btn-primary' %>
+  <% end %>
+  </div>
+</div>
