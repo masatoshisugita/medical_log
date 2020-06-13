@@ -2,6 +2,7 @@
 
 FactoryBot.define do
   factory :user, aliases: %i[follower followed] do
+    sequence(:id, &:to_s)
     name '田中　太郎'
     sequence(:email) { |n| "tester#{n}@example.com" }
     user_image File.open(File.join(Rails.root, 'spec/files/test_file.jpg'))
@@ -9,6 +10,8 @@ FactoryBot.define do
     password_confirmation 'abc123'
     activated false
     activated_at nil
+    reset_digest nil
+    reset_sent_at nil
   end
   # 無効になっている
   trait :invalid do
