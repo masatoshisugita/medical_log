@@ -71,5 +71,15 @@ RSpec.feature 'Sign up', type: :feature do
         expect(mail.body.encoded).to match 'Welcome to the MedicalLog!'
       end
     end
+
+    scenario '無効な値ならメールが送信されないこと' do
+      visit new_user_path
+      fill_in '名前', with: ''
+      fill_in 'メールアドレス', with: 'tester1@example.com'
+      fill_in 'パスワード', with: '123abc'
+      fill_in 'パスワード（確認）', with: '123abc'
+
+      expect { click_button '登録する' }.not_to change { ActionMailer::Base.deliveries.count }
+    end
   end
 end

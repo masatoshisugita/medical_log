@@ -16,4 +16,11 @@ RSpec.feature 'Comments', type: :feature do
   scenario 'コメントボタンがあること' do
     expect(page).to have_button 'コメントをする'
   end
+
+  # scenario '有効な値なら、コメントできること',js: true do
+  #   fill_in 'コメント', with: '自分も同じ経験をしました！お互い頑張りましょう。'
+  #   click_button 'コメントをする'
+
+  #   expect(page).to have_content '自分も同じ経験をしました！お互い頑張りましょう。'
+  # end
 end

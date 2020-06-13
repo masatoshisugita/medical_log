@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @user.user_image&.filename
 
     if @user.save
-      UserMailer.account_activation(@user).deliver_now
+      @user.send_activation_email
       flash[:info] = '送信されたメールアドレスからアカウントを有効にしてください'
       redirect_to root_url
     else

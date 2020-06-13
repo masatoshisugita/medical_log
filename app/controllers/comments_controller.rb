@@ -10,7 +10,11 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.destroy
+    if current_user == @comment.user
+      @comment.destroy
+    else
+      flash[:danger] = '自分以外のコメントは削除できません'
+    end
   end
 
   private
