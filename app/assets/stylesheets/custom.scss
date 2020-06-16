@@ -44,3 +44,44 @@ color: red;
 .form_show td {
    width: 90%;
 }
+
+// topics/index.html.erb
+
+.top_content {
+  background-color: blanchedalmond;
+  border: solid 2px black;
+  box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.4);
+}
+
+.top_title h2{
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.top_title_link {
+  color: #999999;
+}
+
+.top_list_link {
+  color: #999999;
+}
+
+.top_user_image {
+  width: 60%;
+  height: 60%;
+}
+
+.top_user_default_image {
+  width: 40%;
+  height: 40%;
+  background-color: gainsboro;
+}
+
+.top_list p{
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
