@@ -38,7 +38,7 @@ RSpec.feature 'Comments', type: :feature do
   end
 
   scenario '同じユーザーなら,コメント削除できること', js: true do
-    comment = FactoryBot.create(:comment,user_id: @user.id,topic_id: @topic.id)
+    comment = FactoryBot.create(:comment, user_id: @user.id, topic_id: @topic.id)
     visit topic_path(@topic)
     click_button '削除する'
     expect(page).not_to have_content '自分も同じ経験をしました！お互い頑張りましょう。'
