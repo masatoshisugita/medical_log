@@ -6,7 +6,7 @@ RSpec.feature 'Likes', type: :feature do
   before do
     @user = FactoryBot.create(:user)
     @other_user = FactoryBot.create(:user)
-    @topic = FactoryBot.create(:topic, user_id: @other_user.id)
+    @topic = FactoryBot.create(:topic, user_id: @other_user.id, sick_name: '右手の打撲')
     activate @user
     activate @other_user
     sign_in @user
@@ -14,6 +14,23 @@ RSpec.feature 'Likes', type: :feature do
   end
 
   scenario 'いいねボタンがあること' do
-    expect(page).to have_link '♡'
+    expect(page).to have_selector '.not_like_link'
+  end
+
+  scenario 'いいねするとボタンが切り替わること', js: true do
+    find('.not_like_link').find('.fa-heart').click
+    expect(page).to have_selector '.like_link'
+  end
+
+  scenario 'いいねを2回するともとに戻ること', js: true do
+    find('.not_like_link').find('.fa-heart').click
+    find('.like_link').find('.fa-heart').click
+    expect(page).to have_selector '.not_like_link'
+  end
+
+  scenario 'いいねすると、いいね一覧に表示されること', js: true do
+    find('.not_like_link').find('.fa-heart').click
+    visit "/likes/#{@user.id}/index"
+    expect(page).to have_content '右手の打撲'
   end
 end

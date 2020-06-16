@@ -15,37 +15,23 @@ footer {
   margin-top: auto;
   padding: 1em 0;
   border-top: 1px solid #eaeaea;
-  //height: 30px;
-  //margin-top: 30px;
-}
-
-.iine__button{
-  background: linear-gradient(to right, #feb400, #FFE300);
-  line-height: 42px;
-  color: #6d3701;
-  font-size: 14px;
-  display: inline-block;
-  padding: 0 18px;
-  border-radius: 100px;
-  font-weight: bold;
 }
 
 .form-group span {
 color: red;
 }
 
-.user {
-  text-align: center;
-}
-
+// users/_form.html.erb
 .form_user {
   background-color: #f6f8fa;
 }
 
+// topics/_form.html.erb
 .form_topic {
   background-color: #f6f8fa;
 }
 
+// topics/show.html.erb
 .form_show .table {
   width: 100%;
   margin: 0 auto;
@@ -57,8 +43,4 @@ color: red;
 
 .form_show td {
    width: 90%;
-}
-
-.line-it-button{
-  vertical-align: middle;
 }

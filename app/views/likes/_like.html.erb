@@ -1,13 +1,13 @@
 <% if current_user.likes.find_by(topic_id: @topic.id) %>
   <div class="like_button_on">
-    <%= link_to "/likes/#{@topic.id}/delete", {method: "post", remote: true} do %>
-      <div class = "iine__button">❤️　<%= @topic.likes.count %></div>
+    <%= link_to "/likes/#{@topic.id}/delete", {method: "post", remote: true,class: "like_link"} do %>
+      <i class="fas fa-heart fa-2x" style="color: pink";><%= @topic.likes.count %></i>
     <% end %>
   </div>
 <% else %>
   <div class="like_button">
-    <%= link_to "/likes/#{@topic.id}/create", {method: "post", remote: true} do %>
-      <div class = "iine__button">♡<%= @topic.likes.count %></div>
+    <%= link_to "/likes/#{@topic.id}/create", {method: "post", remote: true,class: "not_like_link"} do %>
+      <i class="far fa-heart fa-2x" style="color: pink";><%= @topic.likes.count %></i>
     <% end %>
   </div>
 <% end %>
