@@ -19,13 +19,13 @@ RSpec.feature 'Likes', type: :feature do
 
   scenario 'いいねするとボタンが切り替わること', js: true do
     find('.not_like_link').find('.fa-heart').click
-    sleep 1.0
+    sleep 30
     expect(page).to have_selector '.like_link'
   end
 
   scenario 'いいねを2回するともとに戻ること', js: true do
     find('.not_like_link').find('.fa-heart').click
-    sleep 1.0
+    sleep 30
     find('.like_link').find('.fa-heart').click
     expect(page).to have_selector '.not_like_link'
   end
