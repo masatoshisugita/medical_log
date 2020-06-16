@@ -5,6 +5,12 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
         n stable && \
         npm install -g yarn
 
+RUN apt install -y chrpath libssl-dev libxft-dev
+RUN apt install -y libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev
+ADD https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 phantomjs-2.1.1-linux-x86_64.tar.bz2
+RUN tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2 -C /usr/local/share/
+RUN ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
+
 RUN mkdir /medical_log
 
 ENV APP_ROOT /medical_log

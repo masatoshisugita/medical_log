@@ -40,7 +40,7 @@ class TopicsController < ApplicationController
       flash[:success] = 'トピックを更新しました。'
       redirect_to @topic
     else
-      flash.now[:danger] = '編集に失敗しました'
+      flash[:danger] = '編集に失敗しました'
       render :edit
     end
   end

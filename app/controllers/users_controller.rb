@@ -5,6 +5,8 @@ class UsersController < ApplicationController
   before_action :correct_user, only: %i[edit update]
   skip_before_action :login_required, only: %i[new create]
 
+  def index; end
+
   def new
     if current_user.nil?
       @user = User.new
@@ -23,7 +25,7 @@ class UsersController < ApplicationController
       flash[:info] = '送信されたメールアドレスからアカウントを有効にしてください'
       redirect_to root_url
     else
-      flash.now[:danger] = '登録に失敗しました'
+      flash[:danger] = '登録に失敗しました'
       render :new
     end
   end
@@ -37,10 +39,10 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       @user.user_image&.filename
-      flash[:success] = 'ユーザーを編集しました。'
+      flash.now[:success] = 'ユーザーを編集しました。'
       redirect_to @user
     else
-      flash.now[:danger] = '登録に失敗しました'
+      flash[:danger] = '登録に失敗しました'
       render :edit
     end
   end
