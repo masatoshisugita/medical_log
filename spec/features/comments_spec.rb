@@ -40,7 +40,6 @@ RSpec.feature 'Comments', type: :feature do
   scenario '同じユーザーなら,コメント削除できること', js: true do
     fill_in 'コメント', with: '自分も同じ経験をしました！お互い頑張りましょう。'
     click_button 'コメントをする'
-    sleep 1.0
     click_button '削除する'
     expect(page).not_to have_content '自分も同じ経験をしました！お互い頑張りましょう。'
   end
