@@ -14,18 +14,18 @@ User.create!(name:  "Example User",
              activated: true,
              activated_at: Time.zone.now)
 
-99.times do |n|
-name  = "#{n}test name"
-email = "example-#{n+1}@railstutorial.org"
-password = "password"
-User.create!(name:  name,
-                email: email,
-                user_image: nil,
-                password:              password,
-                password_confirmation: password,
-                activated: true,
-                activated_at: Time.zone.now)
-end
+# 99.times do |n|
+# name  = "#{n}test name"
+# email = "example-#{n+1}@railstutorial.org"
+# password = "password"
+# User.create!(name:  name,
+#                 email: email,
+#                 user_image: nil,
+#                 password:              password,
+#                 password_confirmation: password,
+#                 activated: true,
+#                 activated_at: Time.zone.now)
+# end
 
 10.times do |n|
     User.all.each do |user|
@@ -37,9 +37,10 @@ end
         )
     end
 end
-users = User.all
-user = users.first
-following_user = users[2..50]
-follower_user = users[3..40]
-following_user.each{ |followed| user.follow(followed) }
-follower_user.each{ |follower| follower.follow(user) }
+
+# users = User.all
+# user = users.first
+# following_user = users[2..50]
+# follower_user = users[3..40]
+# following_user.each{ |followed| user.follow(followed) }
+# follower_user.each{ |follower| follower.follow(user) }
