@@ -1,10 +1,10 @@
-<h1>Welcome to the MedicalLog!</h1>
+<h1>アカウントの有効化　MedicalLog</h1>
 
-<p>Hi <%= @user.name %>,</p>
+<p>こんにちは <%= @user.name %> さん</p>
 
 <p>
- Click on the link below to activate your account:
+ 下記のリンクからアカウントを有効化してください
 </p>
 
-<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
+<%= link_to "アカウントを有効化", edit_account_activation_url(@user.activation_token,
                                                     email: @user.email) %>
