@@ -68,7 +68,7 @@ RSpec.feature 'Sign up', type: :feature do
         expect(mail.to).to eq ['tester1@example.com']
         expect(mail.from).to eq ['no.reply.medical.log@gmail.com']
         expect(mail.subject).to eq 'Account activation'
-        expect(mail.body.encoded).to match 'Welcome to the MedicalLog!'
+        expect(mail.body.encoded).to match 'アカウントの有効化　MedicalLog'
       end
     end
 

@@ -1,4 +1,7 @@
-Welcome to the MedicalLog!
-Hi <%= @user.name %>,Click on the link below to activate your account:
+アカウントの有効化　MedicalLog
+
+こんにちは <%= @user.name %> さん
+
+下記のリンクからアカウントを有効化してください
 
 <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
