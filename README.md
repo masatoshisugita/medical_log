@@ -10,19 +10,21 @@
 
 * コメント機能(Ajax)
 
-* メールによるアカウントの有効化
+* メールによるアカウントの有効化とパスワード再設定
 
 * bootstrapによるレスポンシブ対応
 
 * Dockerによる環境構築
 
-* RSpecによるテスト記述(104example)
+* RSpecによるテスト記述(131example)
 
 * awsでのデプロイ
 
 * circleCIの導入
 
 * rubocopの導入
+
+* Sentryの導入
 
 # 使い方
 

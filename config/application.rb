@@ -18,6 +18,10 @@ module MedicalLog
     # the framework and any gems in your application.
     config.time_zone = 'Tokyo'
     config.i18n.default_locale = :ja
+    
+    Raven.configure do |config|
+      config.dsn = 'https://871fda0e90af490495863cac1c2fc886:d78be310a25e4f2f962ad206982d983a@o414573.ingest.sentry.io/5304703'
+    end
 
     config.generators do |g|
     g.test_framework :rspec,

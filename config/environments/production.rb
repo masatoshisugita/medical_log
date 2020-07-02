@@ -30,7 +30,7 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = true
 
-  host = 'http://18.180.194.137'
+  host = 'http://175.41.201.225/'
   Rails.application.routes.default_url_options[:host] = host
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
