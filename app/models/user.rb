@@ -71,14 +71,23 @@ class User < ApplicationRecord
     BCrypt::Password.new(digest).is_password?(token)
   end
 
+  # アカウントを有効化にする
+  def activate
+    update_attribute(:activated, true)
+    update_attribute(:activated_at, Time.zone.now)
+  end
+
+  # activateの許可のメールをユーザーに送る
   def send_activation_email
     UserMailer.account_activation(self).deliver_now
   end
 
+  # passwordをリセットするためのメールをユーザーに送る
   def send_password_reset_email
     UserMailer.password_reset(self).deliver_now
   end
 
+  # passwordを再設定するための属性を設定する
   def create_reset_digest
     self.reset_token = User.new_token
     update_attribute(:reset_digest,  User.digest(reset_token))

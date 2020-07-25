@@ -4,7 +4,8 @@
     <p><%= link_to "#{comment.user.name}さん",user_path(comment.user.id) %></p>
     <p><%= comment.review %></p>
     <% if comment.user == current_user %>
-      <p><%= button_to "削除する",topic_comment_path(comment.topic_id,comment.id),method: :delete,class: "btn btn-danger text-right", remote: true %></p><hr size="5px" color="black">
+      <p><%= button_to "削除する",topic_comment_path(comment.topic_id,comment.id),method: :delete,data: { confirm: "コメント「#{comment.review}」を削除します。よろしいですか？" },class: "btn btn-danger text-right", remote: true %>
+      </p><hr size="5px" color="black">
     <% end %>
   <% end %>
 <% end %>
