@@ -1,1 +1,2 @@
 $("#follow_form").html("<%= j(render("users/follow")) %>");
+$(".follower").html('<%= link_to "フォロワー一覧　#{@user.follower_user.count}件",followers_user_path(@user),class: "white" %>');

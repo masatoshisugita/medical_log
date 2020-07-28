@@ -52,10 +52,10 @@
     <%= render partial: 'follow_form',locals: {user: @user} %>
   </div>
   <div class="col-md-8 mb-3">
-    <div class="float-right">
-      <%= link_to "フォロー一覧　#{@user.following_user.count}件",following_user_path(@user), class: "btn btn-info  d-inline-block" %>
-      <%= link_to "フォロワー一覧　#{@user.follower_user.count}件",followers_user_path(@user),class: "btn btn-info  d-inline-block" %>
-      <%= link_to "いいね一覧　#{@user.likes.count}件","/likes/#{@user.id}/index", class: 'btn btn-warning mr-3' %>
+    <div class="float-right relationship">
+      <%= link_to "フォロー一覧　#{@user.following_user.count}件",following_user_path(@user), class: "btn btn-info  d-inline-block follow" %>
+      <%= link_to "フォロワー一覧　#{@user.follower_user.count}件",followers_user_path(@user),class: "btn btn-info  d-inline-block follower" %>
+      <%= link_to "いいね一覧　#{@user.likes.count}件","/likes/#{@user.id}/index", class: 'btn btn-warning mr-3',id: 'iine' %>
     </div>
   </div>
 </div>
