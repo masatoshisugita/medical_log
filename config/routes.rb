@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-
+  
   resources :topics do
     post :import, on: :collection
     resources :comments, only: [:create, :destroy]

@@ -1,13 +1,37 @@
 body,
 #wrapper {
+  width: 1170px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
+@media (min-width: 1170px) {
+  body,#wrapper {
+    width: 100%;
+  }
+}
+
+@media (max-width: 770px) {
+  body,#wrapper {
+    width: 770px;
+  }
+  .header {
+    height: 100px;
+  }
+  
+  .top-page {
+    text-align: center;
+  }
+}
+
 ///  ヘッダー  ///
 .header {
   background-color: #EEE;
+}
+
+.dropdown {
+  margin-left: auto;
 }
 
 //// フッター ////
