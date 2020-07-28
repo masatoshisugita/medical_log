@@ -1,1 +1,4 @@
 $("#follow_form").html("<%= j(render("users/unfollow")) %>");
+$(".follow").html('<%= link_to "フォロー一覧　#{@user.following_user.count}件",following_user_path(@user) ,class: "white" %>');
+$(".follower").html('<%= link_to "フォロワー一覧　#{@user.follower_user.count}件",followers_user_path(@user),class: "white" %>');
+$("#iine").html('<%= link_to "いいね一覧　#{@user.likes.count}件","/likes/#{@user.id}/index",class: "black" %>');

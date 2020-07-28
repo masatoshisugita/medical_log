@@ -62,6 +62,6 @@
   </div>
   <div id="form_area">
   <% if current_user %>
-    <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
+    <%= render partial: 'comments/form', locals: { topic: @topic ,comment: @comment} %>
   <% end %>
 </div>
