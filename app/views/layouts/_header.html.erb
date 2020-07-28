@@ -1,14 +1,17 @@
 <div class="header app-title navbar navbar-expand-md">
-    <div class="navbar-brand"><%= link_to 'MedicalLog',root_path %></div>
-    <ul class="navbar-nav ml-auto">
+    <h1 class="navbar-brand"><%= link_to 'MedicalLog',root_path %></h1>
+    <div class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
+    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
       <% if current_user %>
-        <li class="nav-item"><%=link_to "#{current_user.name}",user_path(current_user),class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to '投稿一覧',topics_path, class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to '投稿作成',new_topic_path, class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to 'ログアウト',logout_path, method: :delete, class: 'nav-link' %></li>
+        <li><%=link_to "#{current_user.name}",user_path(current_user),class: 'nav-link' %></li>
+        <li><%= link_to '投稿一覧',topics_path, class: 'nav-link' %></li>
+        <li><%= link_to '投稿作成',new_topic_path, class: 'nav-link' %></li>
+        <li><%= link_to 'ログアウト',logout_path, method: :delete, class: 'nav-link' %></li>
       <% else %>
         <li><%= link_to 'ユーザー作成',new_user_path, class: 'nav-link' %></li>
         <li><%= link_to 'ユーザーログイン',login_path, class: 'nav-link' %></li>
       <% end %>
     </ul>
+    </div>
 </div>
