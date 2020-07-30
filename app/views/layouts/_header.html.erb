@@ -1,6 +1,6 @@
-<div class="header app-title navbar navbar-expand-md">
-    <h1 class="navbar-brand"><%= link_to 'MedicalLog',root_path %></h1>
-    <div class="dropdown">
+<nav class="header app-title navbar navbar-expand-sm">
+  <h1 class="navbar-brand"><%= link_to 'MedicalLog',root_path %></h1>
+  <div class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
       <% if current_user %>
@@ -13,5 +13,5 @@
         <li><%= link_to 'ユーザーログイン',login_path, class: 'nav-link' %></li>
       <% end %>
     </ul>
-    </div>
-</div>
+  </div>
+</nav>
