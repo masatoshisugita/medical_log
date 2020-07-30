@@ -16,12 +16,12 @@
 
     <div class="form-group">
       <%= f.label :initial_symptom %><span>　(50文字以内)</span><br>
-      <%= f.text_field :initial_symptom ,:size=>"50",class: "form_topic",placeholder: "初期症状を入力して下さい"  %>
+      <%= f.text_field :initial_symptom ,class: "form_topic topic_initial_symptom",placeholder: "初期症状を入力して下さい" %>
     </div>
 
     <div class="form-group">
       <%= f.label :content %><span>　※必須　(400文字以内)</span><br>
-      <%= f.text_area :content , :size=>"60x10" ,class: "form_topic",placeholder: "内容を入力して下さい" %>
+      <%= f.text_area :content ,class: "form_topic topic_content",placeholder: "内容を入力して下さい" %>
     </div>
     <%= f.submit class: 'btn btn-primary' %>
   <% end %>
