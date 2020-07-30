@@ -33,7 +33,7 @@
     <%= will_paginate @topics %>
   </div>
   
-  <div class="mt-3">
+  <div class="mt-3 csv-content">
     <%= form_tag import_topics_path, multipart: true,class: 'btn' do %>
       <%= file_field_tag :file %>
       <%= submit_tag 'インポート', class: 'btn btn-outline-danger' %>
