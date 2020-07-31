@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       @user.user_image&.filename
-      flash.now[:success] = 'ユーザーを編集しました。'
+      flash[:success] = 'ユーザーを編集しました。'
       redirect_to @user
     else
       flash[:danger] = '登録に失敗しました'

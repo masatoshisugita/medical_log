@@ -31,6 +31,10 @@ body,
     margin-right: 20px;
   }
 
+  h1 {
+    font-size: 17px;
+  }
+
   .csv-content {
     display: none;
   }
@@ -38,12 +42,28 @@ body,
   .top_content {
     margin-left: 25px;
   }
+
   .topic_content {
     width: 90%;
     height: 100px;
   }
   .topic_initial_symptom {
     width: 90%;
+  }
+
+  .table_topic th {
+    display: block;
+    text-align: center;
+    background-color: #EEE;
+    width: 100%;
+  }
+  .table_topic td {
+    display: block;
+    width: 100%;
+  }
+
+  .comment_form {
+    width: 25%;
   }
 }
 
@@ -100,6 +120,9 @@ color: red;
    width: 90%;
 }
 
+.topic-last {
+  border-bottom: solid 1px #dee2e6;
+}
 // topics/index.html.erb
 
 .top_content {
@@ -141,10 +164,14 @@ color: red;
   text-overflow: ellipsis;
 }
 
-.white {
+.follow_white {
   color: white;
 }
 
-.black {
+.iine_black {
   color: black;
+}
+
+.comment_form {
+  width: 60%;
 }

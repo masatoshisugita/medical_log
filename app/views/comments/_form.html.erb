@@ -13,7 +13,7 @@
 
   <div>
     <%= f.label :review %><span style="color: #f00;">(150文字以内)</span><br>
-    <%= f.text_area :review,size: "40×100",placeholder: "コメントはこちら" %>
+    <%= f.text_area :review,placeholder: "コメントはこちら",class: "comment_form" %>
   </div>
   <div class="actions mb-3">
     <%= f.submit "コメントをする", class: "btn btn-x btn-outline-secondary" %>
