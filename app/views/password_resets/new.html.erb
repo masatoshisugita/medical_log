@@ -6,7 +6,7 @@
   <%= form_for(:password_reset, url: password_resets_path) do |f| %>
     <div class="form-group mt-5">
       <%= f.label :email %><span>　※必須　Gmailのみ有効(255文字以内)</span><br>
-      <%= f.text_field :email ,:size=>"40",class: "form_user",placeholder: "登録したメールアドレスを入力してください" %>
+      <%= f.text_field :email ,:size=>"25",class: "form_user",placeholder: "登録したメールアドレスを入力してください" %>
     </div>
     <%= f.submit "送信" ,class: 'btn btn-primary' %>
   <% end %>

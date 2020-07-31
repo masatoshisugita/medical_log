@@ -20,7 +20,7 @@ class TopicsController < ApplicationController
   def create
     @topic = current_user.topics.new(topic_params)
     if @topic.save
-      flash[:success] = "「#{@topic.sick_name}」を登録しました。"
+      flash[:success] = "「#{@topic.sick_name}」を投稿しました。"
       redirect_to @topic
     else
       flash[:danger] = '登録に失敗しました'
