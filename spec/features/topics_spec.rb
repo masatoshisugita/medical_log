@@ -17,7 +17,7 @@ RSpec.feature 'Topics', type: :feature do
       fill_in '初期症状', with: '鼻水、喉の痛み、節々の痛み'
       fill_in '内容', with: '医者に行ったらただの風邪でした。薬を飲んだら治りました！'
       expect { click_button '登録する' }.to change { Topic.count }.by(1)
-      expect(page).to have_content '「高熱」を登録しました。'
+      expect(page).to have_content '「高熱」を投稿しました。'
     end
 
     scenario '無効な値ならユーザーは投稿できないこと' do
