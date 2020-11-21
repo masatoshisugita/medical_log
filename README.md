@@ -26,6 +26,10 @@
 
 * Sentryの導入
 
+* csvの入出力
+
+* Line、Twitterに投稿内容を共有
+
 # 使い方
 
 * githubからファイルをダウンロード
