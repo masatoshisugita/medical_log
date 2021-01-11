@@ -1,18 +1,17 @@
-<h1 class="text-center mt-3">ログイン</h1>
-   <div class="row text-center login-form">
-      <div class="col-sm-12">
-
+<h1 class="text-center mt-3">ログイン画面</h1>
+<div class="row text-center login-form">
+   <div class="col-sm-12">
       <%= form_with scope: :session, local: true do |f| %>
-         <div class="form-group">
-            <%= f.label :email, 'メールアドレス'%><br>
-            <%= f.text_field :email,class: "form_user",:size=>"25",placeholder: "メールアドレスを入力してください" %>
+         <div class="form-group mt-3">
+            <%= f.label :email, 'メールアドレス' %><br>
+            <%= f.text_field :email,class: "form_user",:size=>"85",placeholder: "メールアドレスを入力してください" %>
          </div>
          <div class="form-group">
             <%= f.label :password, 'パスワード' %>
             <%= link_to "(パスワードを忘れた方)", new_password_reset_path %><br>
-            <%= f.password_field :password,class: "form_user",:size=>"25",placeholder: "パスワードを入力して下さい" %>
+            <%= f.password_field :password,class: "form_user",:size=>"40",placeholder: "パスワードを入力して下さい" %>
          </div>
-      <%= f.submit 'ログインする',class: 'btn btn-primary' %>
+         <%= f.submit 'ログインする',class: 'btn btn-primary' %>
       <% end %>
-      </div>
    </div>
+</div>
