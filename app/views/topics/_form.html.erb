@@ -5,7 +5,7 @@
       <%= render 'layouts/error_messages', model: f.object %>
 
     <div class="form-group">
-      <%= f.label :sick_name %><span>　※必須　(30文字以内)</span><br>
+      <%= f.label :sick_name %><span class="span-red">　※必須　(30文字以内)</span><br>
       <%= f.text_field :sick_name , :size=>"30",class: "form_topic",placeholder: "病気の名前を入力して下さい"  %>
     </div>
 
@@ -20,7 +20,7 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :content %><span>　※必須　(400文字以内)</span><br>
+      <%= f.label :content %><span class="span-red">　※必須　(400文字以内)</span><br>
       <%= f.text_area :content ,class: "form_topic topic_content",placeholder: "内容を入力して下さい" %>
     </div>
     <%= f.submit class: 'btn btn-primary' %>

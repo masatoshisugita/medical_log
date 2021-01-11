@@ -72,7 +72,19 @@ body,
   background-color: #EEE;
 }
 
+.title {
+  font-size: 24px;
+  font-family: serif;
+  padding-left: 10px;
+}
+
+.fa-notes-medical {
+  color: blue;
+}
+
 .dropdown {
+  font-size: 18px;
+  font-family: serif;
   margin-left: auto;
 }
 
@@ -83,13 +95,14 @@ footer {
   border-top: 1px solid #eaeaea;
 }
 
-.form-group span {
-color: red;
-}
-
 // users/_form.html.erb
 .form_user {
   background-color: #f6f8fa;
+  margin-top: 20px;
+}
+
+.span-red {
+  color: red;
 }
 
 // topics/_form.html.erb

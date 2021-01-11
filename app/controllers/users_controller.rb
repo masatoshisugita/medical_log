@@ -42,7 +42,7 @@ class UsersController < ApplicationController
       flash[:success] = 'ユーザーを編集しました。'
       redirect_to @user
     else
-      flash[:danger] = '登録に失敗しました'
+      flash[:danger] = 'ユーザー編集に失敗しました'
       render :edit
     end
   end

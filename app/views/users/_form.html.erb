@@ -1,33 +1,33 @@
-<div class="row text-center no-gutters mb-1">
+<div class="row text-center">
   <div class="col-sm-12">
 
-  <%= form_with model: user, local: true do |f| %>
-    <%= render 'layouts/error_messages', model: f.object %>
-    <div class="form-group mt-5">
-      <%= f.label :name %><span>　※必須　(15文字以内)</span><br>
-      <%= f.text_field :name ,:size=>"25",class: "form_user",placeholder: "名前を入力してください"  %>
-    </div>
+    <%= form_with model: user, local: true do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      <div class="form-group mt-4">
+        <%= f.label :name %><span class="span-red">　※必須　(15文字以内)</span><br>
+        <%= f.text_field :name ,:size=>"25",class: "form_user",placeholder: "名前を入力してください"  %>
+      </div>
 
-    <div class="form-group mt-5">
-      <%= f.label :email %><span>　※必須　(255文字以内)</span><br>
-      <%= f.text_field :email ,:size=>"25",class: "form_user",placeholder: "メールアドレスを入力してください" %>
-    </div>
+      <div class="form-group mt-4">
+        <%= f.label :email %><span class="span-red">　※必須　(255文字以内)</span><br>
+        <%= f.text_field :email ,:size=>"50",class: "form_user",placeholder: "メールアドレスを入力してください" %>
+      </div>
 
-    <div class="form-group mt-5">
-      <%= f.label :user_image %><span class="user-file">　※任意</span><br>
-      <%= f.file_field :user_image,:size=>"30" %>
-    </div>
+      <div class="form-group mt-4">
+        <%= f.label :user_image %><span class="user-file">　※任意</span><br>
+        <%= f.file_field :user_image,:size=>"30" %>
+      </div>
 
-    <div class="form-group mt-5">
-      <%= f.label :password %><span>　※必須　(6文字以上)</span><br>
-      <%= f.password_field :password ,:size=>"25",class: "form_user",placeholder: "パスワードを入力してください"  %>
-    </div>
+      <div class="form-group mt-4">
+        <%= f.label :password %><span class="span-red">　※必須　(6文字以上)</span><br>
+        <%= f.password_field :password ,:size=>"25",class: "form_user",placeholder: "パスワードを入力してください"  %>
+      </div>
 
-    <div class="form-group mt-5">
-      <%= f.label :password_confirmation %><span>　※必須　(6文字以上)</span><br>
-      <%= f.password_field :password_confirmation ,:size=>"25",class: "form_user",placeholder: "再度パスワードを入力してください"  %>
-    </div>
-    <%= f.submit class: 'btn btn-primary' %>
-  <% end %>
+      <div class="form-group mt-4">
+        <%= f.label :password_confirmation %><span class="span-red">　※必須　(6文字以上)</span><br>
+        <%= f.password_field :password_confirmation ,:size=>"25",class: "form_user",placeholder: "再度パスワードを入力してください"  %>
+      </div>
+      <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
   </div>
 </div>

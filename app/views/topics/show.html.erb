@@ -12,25 +12,25 @@
   <table class="table table-hover table_topic">
     <tbody>
       <tr>
-        <th class="">ユーザー名</th>
+        <th>ユーザー名</th>
         <td class="text-center"><%= link_to @topic.user.name,@topic.user %></td>
       </tr>
-        <tr>
-          <th>病気の名前</th>
-          <td class="text-center"><%= @topic.sick_name %></td>
-        </tr>
-        <tr>
-          <th>期間</th>
-          <td class="text-center"><%= @topic.period %></td>
-        </tr>
-        <tr>
-          <th>初期症状</th>
-          <td class="text-center"><%= @topic.initial_symptom %></td>
-        </tr>
-        <tr>
-          <th class="topic-last">内容</th>
-          <td class="text-center topic-last"><%= @topic.content %></td>
-        </tr>
+      <tr>
+        <th>病気の名前</th>
+        <td class="text-center"><%= @topic.sick_name %></td>
+      </tr>
+      <tr>
+        <th>期間</th>
+        <td class="text-center"><%= @topic.period %></td>
+      </tr>
+      <tr>
+        <th>初期症状</th>
+        <td class="text-center"><%= @topic.initial_symptom %></td>
+      </tr>
+      <tr>
+        <th class="topic-last">内容</th>
+        <td class="text-center topic-last"><%= @topic.content %></td>
+      </tr>
     </tbody>
   </table>
 </div>
@@ -47,13 +47,15 @@
   </div>
 </div>
 
-  <hr size="5px" color="black">
-  <div id="comments_area">
-    <%= render partial: 'comments/index', locals: { comments: @comments } %>
-  </div>
-  <div id="error_explanation">
-  </div>
-  <div id="form_area">
+<hr size="5px" color="black">
+
+<div id="comments_area">
+  <%= render partial: 'comments/index', locals: { comments: @comments } %>
+</div>
+
+<div id="error_explanation"></div>
+
+<div id="form_area">
   <% if current_user %>
     <%= render partial: 'comments/form', locals: { topic: @topic ,comment: @comment} %>
   <% end %>
