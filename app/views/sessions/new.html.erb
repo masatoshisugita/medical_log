@@ -13,5 +13,8 @@
          </div>
          <%= f.submit 'ログインする',class: 'btn btn-primary' %>
       <% end %>
+      <div class="mt-5">
+         <%= link_to 'ゲストログイン', guest_sign_in_path, method: :post %>
+      </div>
    </div>
 </div>

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get '/login',to: 'sessions#new'
   post '/login',to: 'sessions#create'
+  post '/guest_sign_in', to: 'sessions#new_guest'
   delete '/logout',to: 'sessions#destroy'
 
   post "/likes/:topic_id/create", to: "likes#create"
