@@ -5,7 +5,7 @@ class TopicsController < ApplicationController
   before_action :correct_topic, only: %i[edit update]
 
   def index
-    @topics = Topic.includes(:user).order("created_at DESC").paginate(page: params[:page], per_page: 6)
+    @topics = Topic.includes(:user).order('created_at DESC').paginate(page: params[:page], per_page: 6)
 
     respond_to do |format|
       format.html

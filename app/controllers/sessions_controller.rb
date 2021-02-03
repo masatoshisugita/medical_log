@@ -35,9 +35,9 @@ class SessionsController < ApplicationController
   end
 
   def new_guest
-    user = User.find_or_create_by!(name: 'ゲストユーザー',email: 'guest@example.com') do |user|
-      user.password = SecureRandom.urlsafe_base64
-      user.password_confirmation = user.password
+    user = User.find_or_create_by!(name: 'ゲストユーザー', email: 'guest@example.com') do |u|
+      u.password = SecureRandom.urlsafe_base64
+      u.password_confirmation = u.password
     end
 
     log_in(user)
