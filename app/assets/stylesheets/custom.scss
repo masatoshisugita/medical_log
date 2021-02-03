@@ -152,11 +152,16 @@ footer {
 }
 
 .top_title_link {
-  color: #999999;
+  color: black;
+  font-family: sans-serif;
 }
 
-.top_list_link {
-  color: #999999;
+.top_title_hr {
+  border-top: 3px double #bbb;
+}
+
+.top_list_span {
+  color: green;
 }
 
 .top_user_image {

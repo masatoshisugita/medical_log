@@ -19,10 +19,10 @@
       </div>
       
       <div class="top_title mt-2">
-        <h2><%= link_to topic.sick_name, topic,class: "top_title_link" %></h2><hr>
+        <h2><%= link_to topic.sick_name, topic,class: "top_title_link" %></h2><hr class="top_title_hr">
       </div>
       <div class="top_list mt-3">
-        <p><%= topic.initial_symptom %></p>
+        <p><span class="top_list_span">初期症状</span>　<%= topic.initial_symptom %></p>
         <p><%= link_to topic.user.name, user_path(topic.user),class: "top_list_link" %></p>  
       </div>
     </div>
